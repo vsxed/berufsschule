@@ -1,0 +1,229 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width">
+	<title>Responsive Webdesign</title>
+	
+	<script type="text/javascript" src="http://use.typekit.com/cfy4znm.js"></script>
+	<script type="text/javascript">try{Typekit.load();}catch(e){}</script>
+		
+	<!--[if lt IE 9]>
+	<script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
+	<![endif]-->
+	
+	<style>
+	
+	/* Resets */
+	* {
+		margin: 0; padding: 0;
+		box-sizing:border-box;
+		moz-box-sizing: border-box;
+	}
+	
+	/*img { -ms-interpolation-mode: bicubic; }*/
+	
+	.ht { /* hide text */
+	text-indent: 100%;
+	white-space: nowrap;
+	overflow: hidden;
+	}
+	
+	/* For modern browsers */
+	.cf:before,
+	.cf:after {
+	    content:"";
+	    display:table;
+	}
+	
+	.cf:after {
+	    clear:both;
+	}
+	
+	/* For IE 6/7 (trigger hasLayout) */
+	.cf {
+	    zoom:1;
+	}
+	
+	body {
+		background: #e6e6e6 url(img/paper-bg.jpg) left top repeat fixed;	
+		color: #333;
+		font-family: chaparral-pro, serif;
+		font-size: 15px;
+		line-height: 1.5;
+		margin: 0;
+		padding: 0;
+	}
+	
+	h1, h2, h3 {
+		font-family: myriad-pro-condensed, sans-serif;
+	}
+	
+	h2 {
+		font-size: 30px;
+		font-weight: normal;
+		margin: 0 0 15px;
+	}
+	
+	h3 {
+		font-size: 24px;
+		font-weight: normal;
+		margin: 30px 0 15px;
+	}
+	
+	.content_sub h2,
+	.content_sub h3 {
+		font-family: myriad-pro, sans-serif;
+		font-weight: bold;
+	} 
+	
+	.content_sub h2 {
+		font-size: 18px;
+		margin: 15px 0 0;
+	}
+	
+	.content_sub h3 {
+		color: #333;
+		font-size: 15px;
+		margin: 15px 0 0;
+	}
+	
+	p {
+		margin: 0 0 15px;
+	}
+	
+	ul {
+		margin-left: 15px;
+	}
+	
+	.wrapper {
+		background: #e6e6e6;
+		border: 1px solid #ccc; 
+		border-bottom: none;
+		margin: 48px auto 0;
+		/*max-width: 1080px;*/
+
+		width: 1080px;
+	}
+
+
+	
+	header {
+		background: #078577;
+		color: #fff;
+	}
+	
+	h1 {
+		background: transparent url('img/logo.png') left top no-repeat;
+		float: left;
+		height: 66px;
+		margin: 48px 0 48px 60px;
+		text-indent: 100%;
+		overflow: hidden;
+		width: 240px;
+		white-space: nowrap;
+	}
+	
+	.tagline {
+		float:  right;
+		font-size: 18px;
+		font-style: italic;
+		line-height: 1.4;
+		margin: 45px 60px 0 0;
+		width: 240px;
+	}
+	
+	article {
+		background: transparent url(img/grafik2.png) 750px bottom no-repeat;
+	}
+	
+	.content_main {
+		background: #fff;
+		float: left;
+		padding: 48px 60px;
+		width: 600px;
+	}	
+	
+	.content_sub {
+		float: left;
+		padding: 48px 60px;
+		width: 240px;
+	}
+	
+	.portrait {
+		border: 1px solid #ccc;
+	}
+
+	footer {
+		background: #333;
+		color: #fff;
+		clear: both;
+		padding: 15px 60px 1px;
+	}
+	
+
+	@media (max-width: 1080px) {
+		.wrapper {
+			border: none;
+			margin: 0;
+			width: 100%;
+		}
+		.content_main, .content_sub {
+			width: 50%;
+		}
+
+	}
+	</style>
+	<link rel="stylesheet" href="res.css">
+</head>
+<body>
+
+<div class="wrapper">
+	
+	<header class="cf">
+		<h1 class="ht">Responsive Webdesign</h1>
+		<p class="tagline">Reaktionsfähige Websites gestalten und umsetzen</p>
+	</header>
+	
+	<article class="cf">
+		<div class="content_main">
+			<h2>Über den Autor</h2>
+			<p>Weit hinten, hinter den Wortbergen, fern der Länder Vokalien und Konsonantien leben die Blindtexte. Abgeschieden wohnen Sie in Buchstabhausen an der Küste des Semantik, eines großen Sprachozeans. Ein kleines Bächlein namens Duden fließt durch ihren Ort und versorgt sie mit den nötigen Regelialien. Es ist ein paradiesmatisches Land, in dem einem gebratene Satzteile in den Mund fliegen. Nicht einmal von der allmächtigen Interpunktion werden die Blindtexte beherrscht – ein geradezu unorthographisches Leben. Eines Tages aber beschloß eine kleine Zeile Blindtext, ihr Name war Lorem Ipsum, hinaus zu gehen in die weite Grammatik.
+			</p>
+			<p>Der große Oxmox riet ihr davon ab, da es dort wimmele von bösen Kommata, wilden Fragezeichen und hinterhältigen Semikoli, doch das Blindtextchen ließ sich nicht beirren. Es packte seine sieben Versalien, schob sich sein Initial in den Gürtel und machte sich auf den Weg. Als es die ersten Hügel des Kursivgebirges erklommen hatte, warf es einen letzten Blick zurück auf die Skyline seiner Heimatstadt Buchstabhausen, die Headline von Alphabetdorf und die Subline seiner eigenen Straße, der Zeilengasse. Wehmütig lief ihm eine rethorische Frage über die Wange, dann setzte es seinen Weg fort. Unterwegs traf es eine Copy.
+			</p>
+			<h3>Weitere Infos</h3>
+			<p>Weit hinten, hinter den Wortbergen, fern der Länder Vokalien und Konsonantien leben die Blindtexte. Abgeschieden wohnen Sie in Buchstabhausen an der Küste des Semantik, eines großen Sprachozeans. Ein kleines Bächlein namens Duden fließt durch ihren Ort und versorgt sie mit den nötigen Regelialien. Es ist ein paradiesmatisches Land, in dem einem gebratene Satzteile in den Mund fliegen. Nicht einmal von der allmächtigen Interpunktion werden die Blindtexte beherrscht – ein geradezu unorthographisches Leben. Der große Oxmox riet ihr davon ab, da es dort wimmele von bösen Kommata, wilden Fragezeichen und hinterhältigen Semikoli, doch das Blindtextchen ließ sich nicht beirren. Es packte seine sieben Versalien, schob sich sein Initial in den Gürtel und machte sich auf den Weg. </p>
+
+		</div><!-- /content_main -->
+		<aside class="content_sub">
+				<img class="portrait" src="img/portrait-24.png" alt="Ein hübsches Foto von meinem Gesicht">
+				<h2>Kurz-Info</h2>
+				<p>Das Blindtextchen ließ sich nicht beirren. Es packte seine sieben Versalien, schob sich sein Initial in den Gürtel und machte sich auf den Weg.</p>
+				<h3>Mehr im Web</h3>
+				<ul>
+					<li>Weblog</li>
+					<li>Twitter</li>
+					<li>Dribbble</li>
+					<li>Xing</li>
+				</ul>
+		</aside><!-- /content_sub -->
+	</article>
+	
+	<footer>
+		<p>© 2012 Christoph Zillgens</p>
+	</footer>
+	
+</div>
+
+<!-- Scripts -->
+<!--<script src="js/libs/jquery-1.6.2.min.js"></script>
+<script src="js/plugins.js"></script>
+<script src="js/script.js"></script>-->
+
+<!--[if (lt IE 9) & (!IEMobile)]>
+<!--<script src="js/sslibs/imgsizer.js"></script>-->
+<![endif]-->
+	
+</body>
+</html>

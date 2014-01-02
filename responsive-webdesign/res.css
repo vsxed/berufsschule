@@ -1,0 +1,70 @@
+body:after, body::after {
+	content: '> 1080px';
+	display: block;
+	position: fixed;
+	background:rgba(0,0,0,0.8);
+	color: #fff;
+	bottom: 0;
+	right: 0;
+	padding: 15px 25px;
+}
+
+@media screen and (max-width: 1080px) {
+	body:after, body::after {
+		content: '901 - 1080px';
+	}
+}
+
+/* Breakpoint 1 0 -> 641px */
+@media screen and (min-width: 0) and (max-width: 640px){
+	.portrait {
+		float: none;
+		display: block;
+		margin: 0 auto;
+	}
+	body:after, body::after {
+		content: '0 - 640px';
+	}
+}
+
+@media screen and (min-width: 0) and (max-width: 720px){
+	.content_sub, .content_main {
+		width: 100%;
+		display: block;
+		float:none;
+	}
+
+
+	.tagline {
+		float: none;
+		margin: 0 auto 15px;
+		text-align: center;
+	}
+
+	.ht {
+		float: none;
+		margin: 48px auto;
+	}
+}
+
+/* Breakpoint 2 641 -> 720px */
+@media screen and (min-width: 641px) and (max-width: 720px){
+	.portrait {
+		float: left;
+		margin-right: 30px;
+	}
+	body:after, body::after {
+		content: '641 - 720px';
+	}
+}
+
+/* Breakpoint 3 721 -> 900px */
+@media screen and (min-width:721px) and (max-width: 900px) {
+	.content_sub {
+		width: 50%;
+	}
+
+	body:after, body::after {
+		content: '721 - 900px';
+	}
+}
