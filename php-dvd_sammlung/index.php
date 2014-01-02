@@ -20,12 +20,14 @@
 	<header>
 		<section class="innerwrap">
 			<div id="search" class="left">
-				<i class="fa fa-search fa-2x"></i>
-				<input id="search" name="search" type="text" placeholder="Suchbegriff eingeben">
+				<!-- <i class="fa fa-search fa-2x"></i> -->
+				<input id="titel" name="search" type="text" placeholder="Titel">
+				<input id="genre" type="text" placeholder="Genre">
+				<input id="fsk" type="text" placeholder="FSK">
 			</div>
-			<div id="add-item" class="right">
+			<!-- <div id="add-item" class="right">
 				<i class="fa fa-plus fa-2x"></i>
-			</div>
+			</div> -->
 		</section>
 	</header>
 	<section class="wrapper">

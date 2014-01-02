@@ -30,19 +30,32 @@ header {
 	color: white;
 	position: fixed;
 	z-index: 9;
+	@media screen and (max-width: 640px) {position: relative;}
 
 	#search {
+		width: 100%;
+	}
+
+	input {
 		height: 100%;
+		width: 33%;
+		display: inline-block;
 		margin: 0;
 		padding: 0;
 		border: 0;
 		outline: 0;
 		background: #000;
-		padding: 10px;
+		// padding: 10px;
 		color: #FFF;
-		padding: 0 0 0 20px;
+		// padding: 0 0 0 20px;
 		font-size: 1.5rem;
 		line-height: 1;
+
+		@media screen and (max-width: 640px) {
+			width: 100%;
+			display: block;
+			margin: 1rem 0;
+		}
 	}
 }
 .wrapper {
@@ -135,6 +148,10 @@ h2, h3, h4 {
 			color: white;
 			text-shadow: 0 2px 7px rgba(0,0,0,0.4);
 			font-size: 2.3rem;
+
+			@media screen and (max-width: 640px) {
+				font-size: 1rem;
+			}
 
 			span {
 				display: block;
