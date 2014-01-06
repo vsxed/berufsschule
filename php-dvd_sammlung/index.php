@@ -33,16 +33,16 @@
 	<section class="wrapper">
 		<?php 
 			while ($film = mysql_fetch_array($ergebnis)) {
-				echo '<article class="dvd-element">';
-				// echo '<img class="blur" src="'.$film["dvd_cover"].'" alt="" />';
-				echo '<section class="innerwrap">';
-				echo '<div class="cover"><img src="'.$film["dvd_cover"].'" alt="'.$film["dvd_titel"].'"></div>';
-				echo '<div class="info">';
-				echo '<h3 class="titel">'.$film["dvd_titel"].' <span class="jahr">('.$film["dvd_jahr"].')</span></h3>';
-				echo '<p class="genre">'.$film["dvd_genre"].'</p>';
-				echo '<p class="dauer">'.$film["dvd_dauer"].' Minuten</p>';
-				echo '<p class="fsk">Ab '.$film["dvd_fsk"].' Jahren</p>';
-				echo '</div></section></article>';
+				echo '<article class="dvd-element">
+				<img class="blur" src="'.$film["dvd_cover"].'" alt="" />
+				<section class="innerwrap">
+				<div class="cover"><img src="'.$film["dvd_cover"].'" alt="'.$film["dvd_titel"].'"></div>
+				<div class="info">
+				<h3 class="titel">'.$film["dvd_titel"].' <span class="jahr">('.$film["dvd_jahr"].')</span></h3>
+				<p class="genre">'.$film["dvd_genre"].'</p>
+				<p class="dauer">'.$film["dvd_dauer"].' Minuten</p>
+				<p class="fsk">Ab '.$film["dvd_fsk"].' Jahren</p>
+				</div></section></article>';
 			} 
 		?>
 	</section>

@@ -4,7 +4,7 @@
 	$mysql_user 	= 'root';
 	$mysql_pass = (strpos($os, "Win") !== FALSE) ? "" : "root";
 	$mysql_dbname 	= 'library_dvd';
-	$dvds 			= simplexml_load_file("dvd.xml");
+	$dvds 			= simplexml_load_file(dirname(__FILE__) . "/dvd.xml");
 
 	// Verbindung zur Datenbank herstellen
 	$connect = mysql_connect($mysql_server, $mysql_user, $mysql_pass) or die('Verbindung konnte nicht hergestellt werden!');
