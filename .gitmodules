@@ -1,0 +1,6 @@
+[submodule "Skyloft"]
+	path = Skyloft
+	url = https://github.com/vsxed/Skyloft.git
+[submodule "why-did-i-code-this"]
+	path = why-did-i-code-this
+	url = https://github.com/vsxed/why-did-i-code-this.git
