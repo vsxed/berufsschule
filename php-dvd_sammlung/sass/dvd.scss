@@ -159,13 +159,28 @@ h2, h3, h4 {
 			}
 		}
 
+		p {
+			color: white;
+		}
+
 	}
 }
 
-.left {
-	float: left;
+.modal-body {
+	@include clearfix();
+	input, textarea {
+		display: block;
+		margin-bottom: 10px;
+	}
+	label {
+		float:left;
+		margin-bottom: 10px;
+		max-width: 350px;
+		width:100%;
+	}
 }
 
-.right {
-	float: right;
-}
+.left {float: left;}
+.right {float: right;}
+.deactivated {display: none !important;}
+.error {border: red 2px solid; background: #EEBEBE;}

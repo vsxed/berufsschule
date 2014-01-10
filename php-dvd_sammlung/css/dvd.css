@@ -162,13 +162,47 @@ h2, h3, h4 {
   display: block;
   font-size: 1rem;
 }
+/* line 162, ../sass/dvd.scss */
+.dvd-element .info p {
+  color: white;
+}
 
-/* line 165, ../sass/dvd.scss */
+/* line 80, ../sass/dvd.scss */
+.modal-body:after {
+  display: table;
+  content: '';
+  clear: both;
+}
+/* line 171, ../sass/dvd.scss */
+.modal-body input, .modal-body textarea {
+  display: block;
+  margin-bottom: 10px;
+}
+/* line 175, ../sass/dvd.scss */
+.modal-body label {
+  float: left;
+  margin-bottom: 10px;
+  max-width: 350px;
+  width: 100%;
+}
+
+/* line 183, ../sass/dvd.scss */
 .left {
   float: left;
 }
 
-/* line 169, ../sass/dvd.scss */
+/* line 184, ../sass/dvd.scss */
 .right {
   float: right;
+}
+
+/* line 185, ../sass/dvd.scss */
+.deactivated {
+  display: none !important;
+}
+
+/* line 186, ../sass/dvd.scss */
+.error {
+  border: red 2px solid;
+  background: #EEBEBE;
 }

@@ -1,8 +1,8 @@
 <?php 
-	$os = getenv("HTTP_USER_AGENT");
+	$os 			= getenv("HTTP_USER_AGENT");
 	$mysql_server 	= 'localhost';
 	$mysql_user 	= 'root';
-	$mysql_pass = (strpos($os, "Win") !== FALSE) ? "" : "root";
+	$mysql_pass 	= (strpos($os, "Win") !== FALSE) ? "" : "root";
 	$mysql_dbname 	= 'library_dvd';
 	$dvds 			= simplexml_load_file(dirname(__FILE__) . "/dvd.xml");
 
