@@ -2,7 +2,7 @@
 	include "inc/inc.php";
 	include "inc/database.php";
 	include "inc/add-entry.php";
-	$abfrage = "SELECT * FROM dvd";
+	$abfrage = "SELECT * FROM dvd ORDER BY dvd_id DESC";
 	$ergebnis = mysql_query($abfrage);
 ?>
 <!doctype html>
@@ -12,7 +12,7 @@
 	<title><?php echo $title ?></title>
 	<meta name="author" content="<?php echo $authors ?>">
 	<meta name="date" content="<?php echo $last_mod ?>">
-	<meta name="viewport" content="width=device-width">
+	<!-- <meta name="viewport" content="width=device-width"> -->
 	<link rel="stylesheet" href="css/bootstrap.min.css">
 	<link rel="stylesheet" href="css/dvd.css">
 	<link rel="stylesheet" href="css/font-awesome.min.css">
@@ -35,9 +35,9 @@
 	<section class="wrapper">
 		<?php 
 			while ($film = mysql_fetch_array($ergebnis)) {
-				echo '<article class="dvd-element">
-				<img class="blur" src="'.$film["dvd_cover"].'" alt="" />
-				<section class="innerwrap">
+				echo '<article class="dvd-element">';
+				// echo '<img class="blur" src="'.$film["dvd_cover"].'" alt="" />';
+				echo '<section class="innerwrap">
 				<div class="cover"><img src="'.$film["dvd_cover"].'" alt="'.$film["dvd_titel"].'"></div>
 				<div class="info">
 				<h3 class="titel">'.$film["dvd_titel"].' <span class="jahr">('.$film["dvd_jahr"].')</span></h3>
@@ -50,34 +50,54 @@
 	</section>
 	<script src="http://code.jquery.com/jquery-1.8.2.min.js"></script>
 	<script src="js/bootstrap.min.js"></script>
-	<script src="js/vague.js"></script>
+	<!-- <script src="js/vague.js"></script>
 	<script>
 		var vague = $(".blur").Vague({
 		  intensity:6, //blur intensity,
 		  forceSVGUrl: false // force the absolute path to the svg filter
 		});
 		vague.blur();
+	</script> -->
+	<script>
+		$(document).ready(function() {
+			// PHP IM JS-CODE!
+			// Hier wird geprüft, ob die Variable $fail definiert ist (bzw. existiert);
+			// Wenn dies der Fall ist, wird der JS-Code ausgeführt.
+			// Was macht der Code? Nichts besonderes.
+			// Wenn das Formular validiert wurde und Einträge fehlen, dann wird das Modal-Window wieder aufgerufen,
+			// sodass man die Validierung sieht.
+			<?php if($fail != NULL) {echo "$('#add').modal('show')";} ?>
+		});
 	</script>
 	<?php mysql_close($connect); ?>
-	<!-- Modal für Eingabemasek um Film hinzuzufügen -->
+	<!-- Modal für Eingabemaske um Film hinzuzufügen -->
 	<div class="modal fade" id="add" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
 	  <div class="modal-dialog">
 	    <div class="modal-content">
 	      <div class="modal-header">
 	        <h4 class="modal-title" id="myModalLabel">Film hinzufügen</h4>
+	        <?php if($fail != NULL) { echo '<p class="error">'.$fail.'</p>'; } ?>
 	      </div>
 	      <div class="modal-body">
 	      	<!-- Unsere Eingabemaske -->
 	      	<form action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]) ?>" method="post">
 				<fieldset class="form-group">
-					<label for="entry_title">Titel</label><input type="text" class="form-control <?php echo $titleError; ?>" name="entry_title">
-					<label for="entry_regie">Regie</label><input type="text" class="form-control <?php echo $regieError; ?>" name="entry_regie">
-					<label for="entry_jahr">Jahr</label><input type="text" class="form-control <?php echo $jahrError; ?>" name="entry_jahr">
-					<label for="entry_dauer">Länge</label><input type="text" class="form-control <?php echo $dauerError; ?>" name="entry_dauer">
-					<label for="entry_fsk">Altersbeschränkung</label><input type="text"class="form-control"  name="entry_fsk">
-					<label for="entry_genre">Genre</label><input type="text" class="form-control" name="entry_genre">
-					<label for="entry_cover">Link zum Cover</label><input type="text" class="form-control <?php echo $coverError; ?>" name="entry_cover">
-					<label for="entry_description">Beschreibung</label><textarea class="form-control <?php echo $descriptionError; ?>" name="entry_description"></textarea>
+					<label class="pflicht" for="entry_title">Titel</label><input type="text" value="<?php echo $entry_title; ?>" class="form-control <?php echo $titleError; ?>" name="entry_title">
+					<label class="pflicht" for="entry_regie">Regie</label><input type="text" value="<?php echo $entry_regie; ?>" class="form-control <?php echo $regieError; ?>" name="entry_regie">
+					<label class="pflicht" for="entry_jahr">Jahr</label><input type="text" value="<?php echo $entry_jahr; ?>" class="form-control <?php echo $jahrError; ?>" name="entry_jahr">
+					<label class="pflicht" for="entry_dauer">Länge (in Minuten)</label><input type="text" value="<?php echo $entry_dauer; ?>" class="form-control <?php echo $dauerError; ?>" name="entry_dauer">
+					<label for="entry_fsk">Altersbeschränkung (FSK)</label>
+					<select name="entry_fsk" class="form-control">
+						<!-- Falls $entry_fsk einer der abgefragten ist, wird die passende Option bei der Validierung als "selected" gesetzt, sodass man die Altersbeschränkung nicht doppelt auswählen muss. -->
+						<option <?php if($entry_fsk == 0) { echo 'selected';} ?> value="0">ab 0 Jahren</option>
+						<option <?php if($entry_fsk == 6) { echo 'selected';} ?> value="6">ab 6 Jahren</option>
+						<option <?php if($entry_fsk == 12) { echo 'selected';} ?> value="12">ab 12 Jahren</option>
+						<option <?php if($entry_fsk == 16) { echo 'selected';} ?> value="16">ab 16 Jahren</option>
+						<option <?php if($entry_fsk == 18) { echo 'selected';} ?> value="18">ab 18 Jahren</option>
+					</select>
+					<label for="entry_genre">Genre (mehrere mit Kommatrennung)</label><input type="text" class="form-control" name="entry_genre">
+					<label class="pflicht" for="entry_cover">Link zum Cover</label><input type="text" value="<?php echo $entry_cover; ?>" class="form-control <?php echo $coverError; ?>" name="entry_cover">
+					<label class="pflicht" for="entry_description">Beschreibung</label><textarea class="form-control <?php echo $descriptionError; ?>" name="entry_description"><?php echo $entry_description ?></textarea>
 				</fieldset>
 		      </div>
 		      <div class="modal-footer">

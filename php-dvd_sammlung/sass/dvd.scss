@@ -60,6 +60,7 @@ header {
 }
 .wrapper {
 	position: relative;top: 72px;
+	background: #1d1d1d;
 }
 
 h1 {
@@ -168,15 +169,23 @@ h2, h3, h4 {
 
 .modal-body {
 	@include clearfix();
-	input, textarea {
+	input, textarea, select {
 		display: block;
 		margin-bottom: 10px;
+	}
+	textarea {
+		min-height: 150px;
 	}
 	label {
 		float:left;
 		margin-bottom: 10px;
 		max-width: 350px;
 		width:100%;
+		font-weight: normal;
+
+		&.pflicht {
+			font-weight: bold;
+		}
 	}
 }
 
@@ -184,3 +193,4 @@ h2, h3, h4 {
 .right {float: right;}
 .deactivated {display: none !important;}
 .error {border: red 2px solid; background: #EEBEBE;}
+p.error {background: none; border: 0; color: red; font-weight: bold;}
