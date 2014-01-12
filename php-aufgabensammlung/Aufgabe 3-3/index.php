@@ -168,7 +168,7 @@
 				</fieldset>
 				<fieldset class="bericht">
 					<label for="reisebericht">Reisebericht:</label>
-					<textarea class="<?php echo $reiseberichtError; ?>" name="reisebericht"></textarea>
+					<textarea class="<?php echo $reiseberichtError; ?>" name="reisebericht"><?php echo $reisebericht ?></textarea>
 				</fieldset>
 				<fieldset>
 					<input value="Mazedonien" name="checkbox-list[]" type="checkbox" <?php if(in_array('Mazedonien', $checkboxes)) echo "checked";?> id="input-1">
