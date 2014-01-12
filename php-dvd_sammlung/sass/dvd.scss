@@ -179,12 +179,44 @@ h2, h3, h4 {
 	label {
 		float:left;
 		margin-bottom: 10px;
-		max-width: 350px;
+		// max-width: 350px;
 		width:100%;
 		font-weight: normal;
 
 		&.pflicht {
 			font-weight: bold;
+		}
+	}
+
+	.inline {
+		display: inline;
+		margin-left: 20px;
+		cursor: pointer;
+
+		& label, & input {
+			display: inline;
+			width: auto;
+			float: none;
+			cursor: inherit;
+			max-width: initial;
+		}
+
+		& input {margin-right: 7px;}
+		& label {font-size: 0.75em; color: #428BCA;}
+	}
+
+	.genre-wrap {
+		width: 50%;
+		float: left;
+		font-size: 0.75em;
+
+		&.extend {margin-bottom: 30px;}
+		input, label {display: inline; float: none;}
+		input {margin-right: 7px;}
+		.subgenre {
+			padding-left: 20px;
+			display: none;
+			input, label {display: inline; float: none; margin-bottom: 0}
 		}
 	}
 }

@@ -44,6 +44,7 @@
 
 		if (empty($entry_title) || empty($entry_regie) || empty($entry_dauer) || empty($entry_jahr) || empty($entry_cover) || empty($entry_description)) {
 			$fail = 'Bitte füllen Sie alle notwendigen Felder aus!';
+			print_r($_POST['entry_genre']);
 		} else {
 			mysql_query("INSERT INTO dvd (dvd_titel, dvd_regie, dvd_jahr, dvd_dauer, dvd_fsk, dvd_genre, dvd_beschreibung, dvd_cover) VALUES ('".$entry_title."', '".$entry_regie."', '".$entry_jahr."', '".$entry_dauer."', '".$entry_fsk."', '".$entry_genre."', '".$entry_description."', '".$entry_cover."')");
 			// Variablen wieder leeren
