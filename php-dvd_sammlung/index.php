@@ -135,9 +135,9 @@
 				<fieldset class="form-group">
 					<label class="pflicht" for="entry_title">Titel</label><input type="text" value="<?php echo $entry_title; ?>" class="form-control <?php echo $titleError; ?>" name="entry_title">
 					<label class="pflicht" for="entry_regie">Regie</label><input type="text" value="<?php echo $entry_regie; ?>" class="form-control <?php echo $regieError; ?>" name="entry_regie">
-					<label class="pflicht" for="entry_jahr">Jahr</label><input type="text" value="<?php echo $entry_jahr; ?>" class="form-control <?php echo $jahrError; ?>" name="entry_jahr">
-					<label class="pflicht" for="entry_dauer">Länge (in Minuten)</label><input type="text" value="<?php echo $entry_dauer; ?>" class="form-control <?php echo $dauerError; ?>" name="entry_dauer">
-					<label for="entry_fsk">Altersbeschränkung (FSK)</label>
+					<label class="pflicht" for="entry_jahr">Jahr <small>(YYYY)</small></label><input type="text" value="<?php echo $entry_jahr; ?>" class="form-control <?php echo $jahrError; ?>" name="entry_jahr">
+					<label class="pflicht" for="entry_dauer">Länge <small>(in Minuten)</small></label><input type="text" value="<?php echo $entry_dauer; ?>" class="form-control <?php echo $dauerError; ?>" name="entry_dauer">
+					<label for="entry_fsk">Altersbeschränkung <small>(FSK)</small></label>
 					<select name="entry_fsk" class="form-control">
 						<!-- Falls $entry_fsk einer der abgefragten ist, wird die passende Option bei der Validierung als "selected" gesetzt, sodass man die Altersbeschränkung nicht doppelt auswählen muss. -->
 						<option <?php if($entry_fsk == 0) { echo 'selected';} ?> value="0">ab 0 Jahren</option>
@@ -146,7 +146,7 @@
 						<option <?php if($entry_fsk == 16) { echo 'selected';} ?> value="16">ab 16 Jahren</option>
 						<option <?php if($entry_fsk == 18) { echo 'selected';} ?> value="18">ab 18 Jahren</option>
 					</select>
-					<label for="entry_genre">Genre <a href="#" class="toggle-all" id="untoggle-all">Alle untogglen</a> <fieldset class="inline right"><input type="checkbox" <?php if($extend_check == true) {echo 'checked';} ?> name="erweitert" id="erweitert"><label for="erweitert">Erweitert</label></fieldset></label>
+					<label for="entry_genre">Genre <fieldset class="inline"><input type="checkbox" <?php if($extend_check == true) {echo 'checked';} ?> name="erweitert" id="erweitert"><label for="erweitert">Erweitert</label></fieldset> <a href="#" class="toggle-all right" id="untoggle-all">Alle untogglen</a></label>
 					<fieldset class="entry_genre">
 							<!--  -->
 							<fieldset class="genre-wrap">

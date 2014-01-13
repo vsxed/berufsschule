@@ -186,6 +186,11 @@ h2, h3, h4 {
 		&.pflicht {
 			font-weight: bold;
 		}
+
+		small {
+			font-weight: normal !important;
+			color: #BBB;
+		}
 	}
 
 	.inline {

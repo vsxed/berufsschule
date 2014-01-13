@@ -194,13 +194,18 @@ h2, h3, h4 {
 .modal-body label.pflicht {
   font-weight: bold;
 }
-/* line 191, ../sass/dvd.scss */
+/* line 190, ../sass/dvd.scss */
+.modal-body label small {
+  font-weight: normal !important;
+  color: #BBB;
+}
+/* line 196, ../sass/dvd.scss */
 .modal-body .inline {
   display: inline;
   margin-left: 20px;
   cursor: pointer;
 }
-/* line 196, ../sass/dvd.scss */
+/* line 201, ../sass/dvd.scss */
 .modal-body .inline label, .modal-body .inline input {
   display: inline;
   width: auto;
@@ -208,78 +213,78 @@ h2, h3, h4 {
   cursor: inherit;
   max-width: initial;
 }
-/* line 204, ../sass/dvd.scss */
+/* line 209, ../sass/dvd.scss */
 .modal-body .inline input {
   margin-right: 7px;
 }
-/* line 205, ../sass/dvd.scss */
+/* line 210, ../sass/dvd.scss */
 .modal-body .inline label {
   font-size: 0.75em;
   color: #428BCA;
 }
-/* line 209, ../sass/dvd.scss */
+/* line 214, ../sass/dvd.scss */
 .modal-body .inline label:hover {
   text-decoration: underline;
 }
-/* line 212, ../sass/dvd.scss */
+/* line 217, ../sass/dvd.scss */
 .modal-body .toggle-all {
   font-size: 0.75em;
   color: #428BCA;
   margin-left: 10px;
 }
-/* line 218, ../sass/dvd.scss */
+/* line 223, ../sass/dvd.scss */
 .modal-body .genre-wrap {
   width: 50%;
   float: left;
   font-size: 0.75em;
 }
-/* line 223, ../sass/dvd.scss */
+/* line 228, ../sass/dvd.scss */
 .modal-body .genre-wrap.extend {
   margin-bottom: 30px;
 }
-/* line 224, ../sass/dvd.scss */
+/* line 229, ../sass/dvd.scss */
 .modal-body .genre-wrap input, .modal-body .genre-wrap label {
   display: inline;
   float: none;
 }
-/* line 225, ../sass/dvd.scss */
+/* line 230, ../sass/dvd.scss */
 .modal-body .genre-wrap input {
   margin-right: 7px;
 }
-/* line 226, ../sass/dvd.scss */
+/* line 231, ../sass/dvd.scss */
 .modal-body .genre-wrap .subgenre {
   padding-left: 20px;
   display: none;
 }
-/* line 229, ../sass/dvd.scss */
+/* line 234, ../sass/dvd.scss */
 .modal-body .genre-wrap .subgenre input, .modal-body .genre-wrap .subgenre label {
   display: inline;
   float: none;
   margin-bottom: 0;
 }
 
-/* line 234, ../sass/dvd.scss */
+/* line 239, ../sass/dvd.scss */
 .left {
   float: left;
 }
 
-/* line 235, ../sass/dvd.scss */
+/* line 240, ../sass/dvd.scss */
 .right {
   float: right;
 }
 
-/* line 236, ../sass/dvd.scss */
+/* line 241, ../sass/dvd.scss */
 .deactivated {
   display: none !important;
 }
 
-/* line 237, ../sass/dvd.scss */
+/* line 242, ../sass/dvd.scss */
 .error {
   border: red 2px solid;
   background: #EEBEBE;
 }
 
-/* line 238, ../sass/dvd.scss */
+/* line 243, ../sass/dvd.scss */
 p.error {
   background: none;
   border: 0;
