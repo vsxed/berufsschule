@@ -1,7 +1,7 @@
 <?php 
 	// Wir setzen hier eine Variable auf "true".
 	// Damit können wir dann später das Front End per PHP kontrollieren.
-	// Es soll später schauen, ob die Funktion auch included wurde – wenn nicht, wird die Variable automatisch auf "false" gesetzt, da sie ohne die passende Funktions-PHP nicht definiert wird.
+	// Es soll später schauen, ob die Funktion auch included wurde – wenn nicht, ist die Variable automatisch "false", da sie ohne die passende Funktions-PHP nicht definiert wird.
 	$add = true;
 	// Variablen erstellen und erstmal leer lassen.
 	$entry_title = $entry_description = $entry_regie = $entry_jahr = $entry_dauer = $entry_cover = $entry_fsk = "";
