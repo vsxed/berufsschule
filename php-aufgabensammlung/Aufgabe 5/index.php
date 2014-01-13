@@ -2,7 +2,7 @@
 <?php include '../inc.php'; ?>
 <?php 
 	// Alle relevaten Daten zur Verbindung um die Datenbank auszulesen als Variablen definieren.
-	$mysql_server 	= "192.168.6.4";
+	$mysql_server 	= "localhost";
 	$mysql_user 	= "root";
 	$mysql_password = "root";
 	$mysql_db 		= "schueler_db";
@@ -13,7 +13,7 @@
 	// Verbindung zur Datenbank herstellen
 	mysql_select_db($mysql_db, $connect) or die("Datenbank nicht gefunden");
 
-	$target_tabelle = "schueler";
+	$tabelle = "schueler";
 	$sql_result = mysql_query("SELECT * FROM $tabelle);
 
 ?>
