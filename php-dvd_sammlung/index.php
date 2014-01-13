@@ -81,6 +81,7 @@
 				} else {
 					$genreWrap.removeClass('extend');
 					$subGenreWrapper.hide();
+					$subGenre.prop('checked', false);
 				}
 			});
 
