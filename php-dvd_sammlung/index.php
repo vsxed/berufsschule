@@ -30,28 +30,28 @@
 		<?php 
 			while ($film = mysql_fetch_array($ergebnis)) {
 				echo '<article class="dvd-element">';
-				// echo '<img class="blur" src="'.$film["dvd_cover"].'" alt="" />';
+				echo '<img class="blur" src="'.$film["dvd_cover"].'" alt="" />';
 				echo '<section class="innerwrap">
-				<div class="cover"><img src="'.$film["dvd_cover"].'" alt="'.$film["dvd_titel"].'"></div>
+				<div class="cover"><img class="cover-img" src="'.$film["dvd_cover"].'" alt="'.$film["dvd_titel"].'"><img class="fsk" src="img/fsk-'.$film["dvd_fsk"].'.png" alt="FSK '.$film["dvd_fsk"].'" /></div>
 				<div class="info">
 				<h3 class="titel">'.$film["dvd_titel"].' <span class="jahr">('.$film["dvd_jahr"].')</span></h3>
 				<p class="genre">'.$film["dvd_genre"].'</p>
 				<p class="dauer">'.$film["dvd_dauer"].' Minuten</p>
-				<p class="fsk">Ab '.$film["dvd_fsk"].' Jahren</p>
+				<p class="description">'.$film["dvd_beschreibung"].'</p>
 				</div></section></article>';
 			} 
 		?>
 	</section>
 	<script src="http://code.jquery.com/jquery-1.8.2.min.js"></script>
 	<script src="js/bootstrap.min.js"></script>
-	<!-- <script src="js/vague.js"></script>
+	<script src="js/vague.js"></script>
 	<script>
 		var vague = $(".blur").Vague({
 		  intensity:6, //blur intensity,
 		  forceSVGUrl: false // force the absolute path to the svg filter
 		});
 		vague.blur();
-	</script> -->
+	</script>
 	<script>
 		$(document).ready(function() {
 			// PHP IM JS-CODE!

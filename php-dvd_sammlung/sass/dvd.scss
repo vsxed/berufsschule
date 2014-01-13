@@ -60,7 +60,7 @@ header {
 }
 .wrapper {
 	position: relative;top: 72px;
-	background: #1d1d1d;
+	// background: #1d1d1d;
 }
 
 h1 {
@@ -123,11 +123,20 @@ h2, h3, h4 {
 		// float: left;
 		// margin-right: 40px;
 		display: table-cell;
+		position: relative;
+		background: rgba(255,255,255,0.25);
 
-		img {
+		.cover-img {
 			width: 100%;
+			min-width: 215px;
 			display: block;
 			margin: 0;
+		}
+		.fsk {
+			position: absolute;
+			width: 61px;
+			top: 0;
+			left: 0;
 		}
 	}
 

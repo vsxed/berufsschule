@@ -70,7 +70,6 @@ header input {
 .wrapper {
   position: relative;
   top: 72px;
-  background: #1d1d1d;
 }
 
 /* line 66, ../sass/dvd.scss */
@@ -125,14 +124,24 @@ h2, h3, h4 {
 .dvd-element .cover {
   width: 215px;
   display: table-cell;
+  position: relative;
+  background: rgba(255, 255, 255, 0.25);
 }
-/* line 127, ../sass/dvd.scss */
-.dvd-element .cover img {
+/* line 129, ../sass/dvd.scss */
+.dvd-element .cover .cover-img {
   width: 100%;
+  min-width: 215px;
   display: block;
   margin: 0;
 }
-/* line 134, ../sass/dvd.scss */
+/* line 135, ../sass/dvd.scss */
+.dvd-element .cover .fsk {
+  position: absolute;
+  width: 61px;
+  top: 0;
+  left: 0;
+}
+/* line 143, ../sass/dvd.scss */
 .dvd-element .info {
   background: -moz-linear-gradient(left, rgba(255, 255, 255, 0.25) 0%, rgba(255, 255, 255, 0.25) 17%, rgba(255, 255, 255, 0) 70%);
   background: -webkit-gradient(linear, left top, right top, color-stop(0%, rgba(255, 255, 255, 0.25)), color-stop(17%, rgba(255, 255, 255, 0.25)), color-stop(70%, rgba(255, 255, 255, 0)));
@@ -146,24 +155,24 @@ h2, h3, h4 {
   vertical-align: top;
   padding: 20px 25px;
 }
-/* line 148, ../sass/dvd.scss */
+/* line 157, ../sass/dvd.scss */
 .dvd-element .info h3 {
   color: white;
   text-shadow: 0 2px 7px rgba(0, 0, 0, 0.4);
   font-size: 2.3rem;
 }
 @media screen and (max-width: 640px) {
-  /* line 148, ../sass/dvd.scss */
+  /* line 157, ../sass/dvd.scss */
   .dvd-element .info h3 {
     font-size: 1rem;
   }
 }
-/* line 157, ../sass/dvd.scss */
+/* line 166, ../sass/dvd.scss */
 .dvd-element .info h3 span {
   display: block;
   font-size: 1rem;
 }
-/* line 163, ../sass/dvd.scss */
+/* line 172, ../sass/dvd.scss */
 .dvd-element .info p {
   color: white;
 }
@@ -174,38 +183,38 @@ h2, h3, h4 {
   content: '';
   clear: both;
 }
-/* line 172, ../sass/dvd.scss */
+/* line 181, ../sass/dvd.scss */
 .modal-body input, .modal-body textarea, .modal-body select {
   display: block;
   margin-bottom: 10px;
 }
-/* line 176, ../sass/dvd.scss */
+/* line 185, ../sass/dvd.scss */
 .modal-body textarea {
   min-height: 150px;
 }
-/* line 179, ../sass/dvd.scss */
+/* line 188, ../sass/dvd.scss */
 .modal-body label {
   float: left;
   margin-bottom: 10px;
   width: 100%;
   font-weight: normal;
 }
-/* line 186, ../sass/dvd.scss */
+/* line 195, ../sass/dvd.scss */
 .modal-body label.pflicht {
   font-weight: bold;
 }
-/* line 190, ../sass/dvd.scss */
+/* line 199, ../sass/dvd.scss */
 .modal-body label small {
   font-weight: normal !important;
   color: #BBB;
 }
-/* line 196, ../sass/dvd.scss */
+/* line 205, ../sass/dvd.scss */
 .modal-body .inline {
   display: inline;
   margin-left: 20px;
   cursor: pointer;
 }
-/* line 201, ../sass/dvd.scss */
+/* line 210, ../sass/dvd.scss */
 .modal-body .inline label, .modal-body .inline input {
   display: inline;
   width: auto;
@@ -213,78 +222,78 @@ h2, h3, h4 {
   cursor: inherit;
   max-width: initial;
 }
-/* line 209, ../sass/dvd.scss */
+/* line 218, ../sass/dvd.scss */
 .modal-body .inline input {
   margin-right: 7px;
 }
-/* line 210, ../sass/dvd.scss */
+/* line 219, ../sass/dvd.scss */
 .modal-body .inline label {
   font-size: 0.75em;
   color: #428BCA;
 }
-/* line 214, ../sass/dvd.scss */
+/* line 223, ../sass/dvd.scss */
 .modal-body .inline label:hover {
   text-decoration: underline;
 }
-/* line 217, ../sass/dvd.scss */
+/* line 226, ../sass/dvd.scss */
 .modal-body .toggle-all {
   font-size: 0.75em;
   color: #428BCA;
   margin-left: 10px;
 }
-/* line 223, ../sass/dvd.scss */
+/* line 232, ../sass/dvd.scss */
 .modal-body .genre-wrap {
   width: 50%;
   float: left;
   font-size: 0.75em;
 }
-/* line 228, ../sass/dvd.scss */
+/* line 237, ../sass/dvd.scss */
 .modal-body .genre-wrap.extend {
   margin-bottom: 30px;
 }
-/* line 229, ../sass/dvd.scss */
+/* line 238, ../sass/dvd.scss */
 .modal-body .genre-wrap input, .modal-body .genre-wrap label {
   display: inline;
   float: none;
 }
-/* line 230, ../sass/dvd.scss */
+/* line 239, ../sass/dvd.scss */
 .modal-body .genre-wrap input {
   margin-right: 7px;
 }
-/* line 231, ../sass/dvd.scss */
+/* line 240, ../sass/dvd.scss */
 .modal-body .genre-wrap .subgenre {
   padding-left: 20px;
   display: none;
 }
-/* line 234, ../sass/dvd.scss */
+/* line 243, ../sass/dvd.scss */
 .modal-body .genre-wrap .subgenre input, .modal-body .genre-wrap .subgenre label {
   display: inline;
   float: none;
   margin-bottom: 0;
 }
 
-/* line 239, ../sass/dvd.scss */
+/* line 248, ../sass/dvd.scss */
 .left {
   float: left;
 }
 
-/* line 240, ../sass/dvd.scss */
+/* line 249, ../sass/dvd.scss */
 .right {
   float: right;
 }
 
-/* line 241, ../sass/dvd.scss */
+/* line 250, ../sass/dvd.scss */
 .deactivated {
   display: none !important;
 }
 
-/* line 242, ../sass/dvd.scss */
+/* line 251, ../sass/dvd.scss */
 .error {
   border: red 2px solid;
   background: #EEBEBE;
 }
 
-/* line 243, ../sass/dvd.scss */
+/* line 252, ../sass/dvd.scss */
 p.error {
   background: none;
   border: 0;
