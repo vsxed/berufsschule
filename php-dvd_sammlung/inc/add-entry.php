@@ -42,23 +42,40 @@
 		// FSK durchgeben und definieren
 		$entry_fsk = $_POST['entry_fsk'];
 
+		// Durchgeben, ob die erweiterte Genre-Suche aktiviert war.
+		$erweitert = $_POST['erweitert'];
+
+		// Haupt- und Unterkategorie in die Datenbank schreiben
+		// Zuerst fangen wir die Hauptkategorie ab. Die ist unsere Basis für die erweiterten Unterkategorien.
+		// 
 		$mainGenres = $_POST['hauptgenre'];
 		foreach ($mainGenres as $key => $main):
-				$mainGenresAusgabe[] = $main;
-				$arr[$main] = $_POST['sub-'.$main];
+			// Hier fangen wir erstmal alle Hauptkategorien ab und sichern uns diese als Array ab.
+			$mainGenresAusgabe[] = $main;
+			// Nun erstellen wir daraus ein multidimensionales Array, indem wir noch die jeweiligen 
+			// Unterkategorien as Arrays daran hängen.
+			// Unsere Unterkategorien haben immer einen eindeutigen Namen.
+			// So haben Sie immer einen Prefix "sub-", darauffolgend der Hauptkategorie wo sie zugehören.
+			// Damit fangen wir also alle Subkategorien ab, sobald dessen Hauptkategorie angeklickt wurde.
+			$arr[$main] = $_POST['sub-'.$main];
 
-				foreach($arr[$main] as $stuff):
-					$subs[] = $stuff;
-				endforeach;
+			// Jetzt noch eine foreach-Schleife um lediglich die Unterkategorien zu bekommen und 
+			// in ein gemeinsames Array für die Datenbank zu sichern.
+			foreach($arr[$main] as $stuff):
+				$subs[] = $stuff;
+			endforeach;
 		endforeach;
 
+		// Nun noch ein schönes Format für unsere Datenbank imploden und dann ist es bereit für
+		// den langen Weg in unsere Datenbank.
 		$hauptgenreAusgabe = implode(", ", $mainGenresAusgabe);
 		$subgenreAusgabe = implode(", ", $subs);
 
 		if (empty($entry_title) || empty($entry_regie) || empty($entry_dauer) || empty($entry_jahr) || empty($entry_cover) || empty($entry_description)) {
 			$fail = 'Bitte füllen Sie alle notwendigen Felder aus!';
-			// $fail = $subgenreAusgabe;
-			// print_r($_POST['entry_genre']);
+			// Wenn die erweiterte Genre-Liste aktiviert war, ist die Variable true, ansonsten false.
+			// Damit können wir dann in der Abfragen machen.
+			$extend_check = (!empty($erweitert)) ? true : false;
 		} else {
 			mysql_query("INSERT INTO dvd (dvd_titel, dvd_regie, dvd_jahr, dvd_dauer, dvd_fsk, dvd_genre, dvd_subgenre, dvd_beschreibung, dvd_cover) VALUES ('".$entry_title."', '".$entry_regie."', '".$entry_jahr."', '".$entry_dauer."', '".$entry_fsk."', '".$hauptgenreAusgabe."', '".$subgenreAusgabe."', '".$entry_description."', '".$entry_cover."')");
 			// Variablen wieder leeren
