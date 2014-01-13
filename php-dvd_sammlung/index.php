@@ -78,6 +78,7 @@
 			var $subGenreWrapper = $('.entry_genre .genre-wrap .subgenre') ;
 			var $subGenre 	= $('.entry_genre .genre-wrap .subgenre input') ;
 			var $extended 	= $('#erweitert');
+			var $untoggle	= $('#untoggle-all');
 
 			$extended.on('click', function() {
 				if( $extended.prop('checked') == true) {
@@ -88,21 +89,31 @@
 					$subGenreWrapper.hide();
 				}
 			});
-				$subGenreWrapper.each(function() {
-						$(this).children('input').on('click', function(){
-							if($(this).prop('checked') == true) {
-								$(this).closest('.genre-wrap').children('input').prop({
-									checked: true,
-									disabled: true
-								});
-							} else if ($(this).parent('.subgenre').children('input:checked').length == 0 ) {
-								$(this).closest('.genre-wrap').children('input').prop({
-									checked: false,
-									disabled: false
-								});
-							}
-						});
+			$subGenreWrapper.each(function() {
+					$(this).children('input').on('click', function(){
+						if($(this).prop('checked') == true) {
+							$(this).closest('.genre-wrap').children('input').prop({
+								checked: true
+							});
+						} else if ($(this).parent('.subgenre').children('input:checked').length == 0 ) {
+							$(this).closest('.genre-wrap').children('input').prop({
+								checked: false
+							});
+						}
+					});
+			});
+
+			// Beim Klick auf unseren Untoggle-Button werden alle Checkboxen unchecked.
+			$untoggle.on('click', function(){
+				// Alle Input/Checkbox Elemente innerhalb des Fieldsets mit der Klasse "entry_gerne" ungechecked
+				// Referenz: http://api.jquery.com/prop/#prop-propertyName-value
+				$('.entry_genre input[type=checkbox]').prop({
+					checked: false,
+					readonly: false
 				});
+				// Damit der Browser nicht beim Klick nach oben springt
+				return false;
+			});
 		});
 	</script>
 	<?php mysql_close($connect); ?>
@@ -132,7 +143,7 @@
 						<option <?php if($entry_fsk == 16) { echo 'selected';} ?> value="16">ab 16 Jahren</option>
 						<option <?php if($entry_fsk == 18) { echo 'selected';} ?> value="18">ab 18 Jahren</option>
 					</select>
-					<label for="entry_genre">Genre <fieldset class="inline right"><input type="checkbox" name="erweitert" id="erweitert"><label for="erweitert">Erweitert</label></fieldset></label>
+					<label for="entry_genre">Genre <a href="#" class="toggle-all" id="untoggle-all">Alle untogglen</a> <fieldset class="inline right"><input type="checkbox" name="erweitert" id="erweitert"><label for="erweitert">Erweitert</label></fieldset></label>
 					<fieldset class="entry_genre">
 							<!--  -->
 							<fieldset class="genre-wrap">

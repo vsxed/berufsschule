@@ -31,7 +31,7 @@
 	// --------
 	// Wir prüfen, ob es eine Tabelle mit dem Namen "dvd" bereits gibt. Wenn nicht, erstellen wir diese und fügen Inhalte aus unserer XML hinzu.
 	if (check("dvd") != 1) {
-		mysql_query("CREATE TABLE dvd (dvd_id int(11) NOT NULL AUTO_INCREMENT, dvd_titel varchar(255) NOT NULL, dvd_regie varchar(255) NOT NULL, dvd_jahr int(4) NOT NULL, dvd_dauer int(3) NOT NULL, dvd_fsk int(2), dvd_genre varchar(255) NOT NULL, dvd_beschreibung varchar(255), dvd_cover varchar(255), PRIMARY KEY (dvd_id)) default charset=utf8");
+		mysql_query("CREATE TABLE dvd (dvd_id int(11) NOT NULL AUTO_INCREMENT, dvd_titel varchar(255) NOT NULL, dvd_regie varchar(255) NOT NULL, dvd_jahr int(4) NOT NULL, dvd_dauer int(3) NOT NULL, dvd_fsk int(2), dvd_genre varchar(255) NOT NULL, dvd_subgenre varchar(255), dvd_beschreibung varchar(255), dvd_cover varchar(255), PRIMARY KEY (dvd_id)) default charset=utf8");
 		foreach ($dvds as $dvd) {
 			mysql_query("INSERT INTO dvd (dvd_titel, dvd_regie, dvd_jahr, dvd_dauer, dvd_fsk, dvd_genre, dvd_beschreibung, dvd_cover) VALUES ('".$dvd->titel."', '".$dvd->regie."', '".$dvd->jahr."', '".$dvd->dauer."', '".$dvd->fsk."', '".$dvd->genre."', '".$dvd->beschreibung."', '".$dvd->cover."')");
 		}

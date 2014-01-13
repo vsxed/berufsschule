@@ -202,7 +202,17 @@ h2, h3, h4 {
 		}
 
 		& input {margin-right: 7px;}
-		& label {font-size: 0.75em; color: #428BCA;}
+		& label {
+			font-size: 0.75em; 
+			color: #428BCA;
+
+			&:hover {text-decoration: underline;}
+		}
+	}
+	.toggle-all {
+		font-size: 0.75em; 
+		color: #428BCA;
+		margin-left: 10px;
 	}
 
 	.genre-wrap {

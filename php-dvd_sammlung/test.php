@@ -2,12 +2,28 @@
 <?php 
 	$mainGenres = $_POST['hauptgenre'];
 	foreach ($mainGenres as $key => $main):
+			$hauptgenres[] = $main;
 		    $arr[$main] = $_POST['sub-'.$main];
+
+		    foreach($arr[$main] as $stuff):
+				$subs[] = $stuff;
+			endforeach;
 	endforeach;
 
 	echo '<pre>';
 	echo print_r($arr, 1);
 	echo '</pre>';
+
+	echo '<pre>';
+	echo implode(", ",$hauptgenres);
+	echo '</pre>';
+
+	echo '<pre>';
+	echo implode(", ",$subs);
+	echo '</pre>';
+
+
+
  ?>
 <html lang="en">
 <head>
