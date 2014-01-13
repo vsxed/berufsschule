@@ -150,6 +150,49 @@
 					<fieldset class="entry_genre">
 							<!--  -->
 							<fieldset class="genre-wrap">
+								<input type="checkbox" name="hauptgenre[]" <?php if(in_array('Dokumentarfilm', $mainGenresAusgabe)) echo 'checked'; ?> id="Dokumentarfilm" value="Dokumentarfilm">
+								<label for="Dokumentarfilm">Dokumentarfilm</label>
+								<fieldset class="subgenre">
+									<input type="checkbox" value="Ereignisdokumentation" <?php if(in_array('Ereignisdokumentation', $subs)) echo 'checked'; ?> name="sub-Dokumentarfilm[]" id="sub-Dokumentarfilm-1">
+									<label for="sub-Dokumentarfilm-1">Ereignisdokumentation</label>
+									<br>
+									<input type="checkbox" value="Essay-Film" <?php if(in_array('Essay-Film', $subs)) echo 'checked'; ?> name="sub-Dokumentarfilm[]" id="sub-Dokumentarfilm-2">
+									<label for="sub-Dokumentarfilm-2">Essay-Film</label>
+									<br>
+									<input type="checkbox" value="Inszenierter Dokumentarfilm" <?php if(in_array('Inszenierter Dokumentarfilm', $subs)) echo 'checked'; ?> name="sub-Dokumentarfilm[]" id="sub-Dokumentarfilm-3">
+									<label for="sub-Dokumentarfilm-3">Inszenierter Dokumentarfilm</label>
+									<br>
+									<input type="checkbox" value="Investigativer Dokumentarfilm" <?php if(in_array('Investigativer Dokumentarfilm', $subs)) echo 'checked'; ?> name="sub-Dokumentarfilm[]" id="sub-Dokumentarfilm-4">
+									<label for="sub-Dokumentarfilm-4">Investigativer Dokumentarfilm</label>
+									<br>
+									<input type="checkbox" value="Kulturfilm" <?php if(in_array('Kulturfilm', $subs)) echo 'checked'; ?> name="sub-Dokumentarfilm[]" id="sub-Dokumentarfilm-5">
+									<label for="sub-Dokumentarfilm-5">Kulturfilm</label>
+									<br>
+									<input type="checkbox" value="Langzeitdokumentation" <?php if(in_array('Langzeitdokumentation', $subs)) echo 'checked'; ?> name="sub-Dokumentarfilm[]" id="sub-Dokumentarfilm-6">
+									<label for="sub-Dokumentarfilm-6">Langzeitdokumentation</label>
+									<br>
+									<input type="checkbox" value="Making-Of-Dokumentation" <?php if(in_array('Making-Of-Dokumentation', $subs)) echo 'checked'; ?> name="sub-Dokumentarfilm[]" id="sub-Dokumentarfilm-7">
+									<label for="sub-Dokumentarfilm-7">Making-Of-Dokumentation</label>
+									<br>
+									<input type="checkbox" value="Naturdokumentation" <?php if(in_array('Naturdokumentation', $subs)) echo 'checked'; ?> name="sub-Dokumentarfilm[]" id="sub-Dokumentarfilm-8">
+									<label for="sub-Dokumentarfilm-8">Naturdokumentation</label>
+									<br>
+									<input type="checkbox" value="Politische Dokumentation" <?php if(in_array('Politische Dokumentation', $subs)) echo 'checked'; ?> name="sub-Dokumentarfilm[]" id="sub-Dokumentarfilm-9">
+									<label for="sub-Dokumentarfilm-9">Politische Dokumentation</label>
+									<br>
+									<input type="checkbox" value="Reisedokumentation" <?php if(in_array('Reisedokumentation', $subs)) echo 'checked'; ?> name="sub-Dokumentarfilm[]" id="sub-Dokumentarfilm-10">
+									<label for="sub-Dokumentarfilm-10">Reisedokumentation</label>
+									<br>
+									<input type="checkbox" value="Sozialstudie" <?php if(in_array('Sozialstudie', $subs)) echo 'checked'; ?> name="sub-Dokumentarfilm[]" id="sub-Dokumentarfilm-11">
+									<label for="sub-Dokumentarfilm-11">Sozialstudie</label>
+									<br>
+									<input type="checkbox" value="Wissenschaftlicher Dokumentarfilm" <?php if(in_array('Wissenschaftlicher Dokumentarfilm', $subs)) echo 'checked'; ?> name="sub-Dokumentarfilm[]" id="sub-Dokumentarfilm-12">
+									<label for="sub-Dokumentarfilm-12">Wissenschaftlicher Dokumentarfilm</label>
+									<br>
+								</fieldset>
+							</fieldset>
+							<!--  -->
+							<fieldset class="genre-wrap">
 								<input type="checkbox" <?php if(in_array('Abenteuerfilm', $mainGenresAusgabe)) echo 'checked'; ?> name="hauptgenre[]" id="Abenteuerfilm" value="Abenteuerfilm">
 								<label for="Abenteuerfilm">Abenteuerfilm</label>
 								<fieldset class="subgenre">
@@ -213,45 +256,22 @@
 								</fieldset>
 							</fieldset>
 							<!--  -->
+							
 							<fieldset class="genre-wrap">
-								<input type="checkbox" name="hauptgenre[]" <?php if(in_array('Dokumentarfilm', $mainGenresAusgabe)) echo 'checked'; ?> id="Dokumentarfilm" value="Dokumentarfilm">
-								<label for="Dokumentarfilm">Dokumentarfilm</label>
+								<input type="checkbox" name="hauptgenre[]" <?php if(in_array('Eastern', $mainGenresAusgabe)) echo 'checked'; ?> id="Eastern" value="Eastern">
+								<label for="Eastern">Eastern</label>
 								<fieldset class="subgenre">
-									<input type="checkbox" value="Ereignisdokumentation" <?php if(in_array('Ereignisdokumentation', $subs)) echo 'checked'; ?> name="sub-Dokumentarfilm[]" id="sub-Dokumentarfilm-1">
-									<label for="sub-Dokumentarfilm-1">Ereignisdokumentation</label>
+									<input type="checkbox" value="Martial-Arts-Film" <?php if(in_array('Material-Arts-Film', $subs)) echo 'checked'; ?> name="sub-Eastern[]" id="sub-Eastern-1">
+									<label for="sub-Eastern-1">Martial-Arts-Film</label>
 									<br>
-									<input type="checkbox" value="Essay-Film" <?php if(in_array('Essay-Film', $subs)) echo 'checked'; ?> name="sub-Dokumentarfilm[]" id="sub-Dokumentarfilm-2">
-									<label for="sub-Dokumentarfilm-2">Essay-Film</label>
+									<input type="checkbox" value="Ninjafilm" <?php if(in_array('Ninjafilm', $subs)) echo 'checked'; ?> name="sub-Eastern[]" id="sub-Eastern-2">
+									<label for="sub-Eastern-2">Ninjafilm</label>
 									<br>
-									<input type="checkbox" value="Inszenierter Dokumentarfilm" <?php if(in_array('Inszenierter Dokumentarfilm', $subs)) echo 'checked'; ?> name="sub-Dokumentarfilm[]" id="sub-Dokumentarfilm-3">
-									<label for="sub-Dokumentarfilm-3">Inszenierter Dokumentarfilm</label>
+									<input type="checkbox" value="Samuraifilm" <?php if(in_array('Samuraifilm', $subs)) echo 'checked'; ?> name="sub-Eastern[]" id="sub-Eastern-3">
+									<label for="sub-Eastern-3">Samuraifilm</label>
 									<br>
-									<input type="checkbox" value="Investigativer Dokumentarfilm" <?php if(in_array('Investigativer Dokumentarfilm', $subs)) echo 'checked'; ?> name="sub-Dokumentarfilm[]" id="sub-Dokumentarfilm-4">
-									<label for="sub-Dokumentarfilm-4">Investigativer Dokumentarfilm</label>
-									<br>
-									<input type="checkbox" value="Kulturfilm" <?php if(in_array('Kulturfilm', $subs)) echo 'checked'; ?> name="sub-Dokumentarfilm[]" id="sub-Dokumentarfilm-5">
-									<label for="sub-Dokumentarfilm-5">Kulturfilm</label>
-									<br>
-									<input type="checkbox" value="Langzeitdokumentation" <?php if(in_array('Langzeitdokumentation', $subs)) echo 'checked'; ?> name="sub-Dokumentarfilm[]" id="sub-Dokumentarfilm-6">
-									<label for="sub-Dokumentarfilm-6">Langzeitdokumentation</label>
-									<br>
-									<input type="checkbox" value="Making-Of-Dokumentation" <?php if(in_array('Making-Of-Dokumentation', $subs)) echo 'checked'; ?> name="sub-Dokumentarfilm[]" id="sub-Dokumentarfilm-7">
-									<label for="sub-Dokumentarfilm-7">Making-Of-Dokumentation</label>
-									<br>
-									<input type="checkbox" value="Naturdokumentation" <?php if(in_array('Naturdokumentation', $subs)) echo 'checked'; ?> name="sub-Dokumentarfilm[]" id="sub-Dokumentarfilm-8">
-									<label for="sub-Dokumentarfilm-8">Naturdokumentation</label>
-									<br>
-									<input type="checkbox" value="Politische Dokumentation" <?php if(in_array('Politische Dokumentation', $subs)) echo 'checked'; ?> name="sub-Dokumentarfilm[]" id="sub-Dokumentarfilm-9">
-									<label for="sub-Dokumentarfilm-9">Politische Dokumentation</label>
-									<br>
-									<input type="checkbox" value="Reisedokumentation" <?php if(in_array('Reisedokumentation', $subs)) echo 'checked'; ?> name="sub-Dokumentarfilm[]" id="sub-Dokumentarfilm-10">
-									<label for="sub-Dokumentarfilm-10">Reisedokumentation</label>
-									<br>
-									<input type="checkbox" value="Sozialstudie" <?php if(in_array('Sozialstudie', $subs)) echo 'checked'; ?> name="sub-Dokumentarfilm[]" id="sub-Dokumentarfilm-11">
-									<label for="sub-Dokumentarfilm-11">Sozialstudie</label>
-									<br>
-									<input type="checkbox" value="Wissenschaftlicher Dokumentarfilm" <?php if(in_array('Wissenschaftlicher Dokumentarfilm', $subs)) echo 'checked'; ?> name="sub-Dokumentarfilm[]" id="sub-Dokumentarfilm-12">
-									<label for="sub-Dokumentarfilm-12">Wissenschaftlicher Dokumentarfilm</label>
+									<input type="checkbox" value="Wuxiafilm" <?php if(in_array('Wuxiafilm', $subs)) echo 'checked'; ?> name="sub-Eastern[]" id="sub-Eastern-4">
+									<label for="sub-Eastern-4">Wuxiafilm</label>
 									<br>
 								</fieldset>
 							</fieldset>
@@ -299,25 +319,7 @@
 								</fieldset>
 							</fieldset>
 							<!--  -->
-							<fieldset class="genre-wrap">
-								<input type="checkbox" name="hauptgenre[]" <?php if(in_array('Eastern', $mainGenresAusgabe)) echo 'checked'; ?> id="Eastern" value="Eastern">
-								<label for="Eastern">Eastern</label>
-								<fieldset class="subgenre">
-									<input type="checkbox" value="Martial-Arts-Film" <?php if(in_array('Material-Arts-Film', $subs)) echo 'checked'; ?> name="sub-Eastern[]" id="sub-Eastern-1">
-									<label for="sub-Eastern-1">Martial-Arts-Film</label>
-									<br>
-									<input type="checkbox" value="Ninjafilm" <?php if(in_array('Ninjafilm', $subs)) echo 'checked'; ?> name="sub-Eastern[]" id="sub-Eastern-2">
-									<label for="sub-Eastern-2">Ninjafilm</label>
-									<br>
-									<input type="checkbox" value="Samuraifilm" <?php if(in_array('Samuraifilm', $subs)) echo 'checked'; ?> name="sub-Eastern[]" id="sub-Eastern-3">
-									<label for="sub-Eastern-3">Samuraifilm</label>
-									<br>
-									<input type="checkbox" value="Wuxiafilm" <?php if(in_array('Wuxiafilm', $subs)) echo 'checked'; ?> name="sub-Eastern[]" id="sub-Eastern-4">
-									<label for="sub-Eastern-4">Wuxiafilm</label>
-									<br>
-								</fieldset>
-							</fieldset>
-							<!--  -->
+							
 							<fieldset class="genre-wrap">
 								<input type="checkbox" name="hauptgenre[]" <?php if(in_array('Erotikfilm', $mainGenresAusgabe)) echo 'checked'; ?> id="Erotikfilm" value="Erotikfilm">
 								<label for="Erotikfilm">Erotikfilm</label>
@@ -401,22 +403,6 @@
 							</fieldset>
 							<!--  -->
 							<fieldset class="genre-wrap">
-								<input type="checkbox" name="hauptgenre[]" <?php if(in_array('Katastrophenfilm', $mainGenresAusgabe)) echo 'checked'; ?> id="Katastrophenfilm" value="Katastrophenfilm">
-								<label for="Katastrophenfilm">Katastrophenfilm</label>
-								<fieldset class="subgenre">
-									<input type="checkbox" value="Naturkatastrophe" <?php if(in_array('Naturkatastrophe', $subs)) echo 'checked'; ?> name="sub-Katastrophenfilm[]" id="sub-Katastrophenfilm-1">
-									<label for="sub-Katastrophenfilm-1">Naturkatastrophe</label>
-									<br>
-									<input type="checkbox" value="Terrorismus" <?php if(in_array('Terrorismus', $subs)) echo 'checked'; ?> name="sub-Katastrophenfilm[]" id="sub-Katastrophenfilm-2">
-									<label for="sub-Katastrophenfilm-2">Terrorismus</label>
-									<br>
-									<input type="checkbox" value="Unglücksfilm" <?php if(in_array('Unglücksfilm', $subs)) echo 'checked'; ?> name="sub-Katastrophenfilm[]" id="sub-Katastrophenfilm-3">
-									<label for="sub-Katastrophenfilm-3">Unglücksfilm</label>
-									<br>
-								</fieldset>
-							</fieldset>
-							<!--  -->
-							<fieldset class="genre-wrap">
 								<input type="checkbox" name="hauptgenre[]" <?php if(in_array('Komödie', $mainGenresAusgabe)) echo 'checked'; ?> id="Komödie" value="Komödie">
 								<label for="Komödie">Komödie</label>
 								<fieldset class="subgenre">
@@ -470,6 +456,22 @@
 									<br>
 									<input type="checkbox" value="Verwechslungskomödie" <?php if(in_array('Verwechslungskomödie', $subs)) echo 'checked'; ?> name="sub-Komödie[]" id="sub-Komödie-17">
 									<label for="sub-Komödie-17">Verwechslungskomödie</label>
+									<br>
+								</fieldset>
+							</fieldset>
+							<!--  -->
+							<fieldset class="genre-wrap">
+								<input type="checkbox" name="hauptgenre[]" <?php if(in_array('Katastrophenfilm', $mainGenresAusgabe)) echo 'checked'; ?> id="Katastrophenfilm" value="Katastrophenfilm">
+								<label for="Katastrophenfilm">Katastrophenfilm</label>
+								<fieldset class="subgenre">
+									<input type="checkbox" value="Naturkatastrophe" <?php if(in_array('Naturkatastrophe', $subs)) echo 'checked'; ?> name="sub-Katastrophenfilm[]" id="sub-Katastrophenfilm-1">
+									<label for="sub-Katastrophenfilm-1">Naturkatastrophe</label>
+									<br>
+									<input type="checkbox" value="Terrorismus" <?php if(in_array('Terrorismus', $subs)) echo 'checked'; ?> name="sub-Katastrophenfilm[]" id="sub-Katastrophenfilm-2">
+									<label for="sub-Katastrophenfilm-2">Terrorismus</label>
+									<br>
+									<input type="checkbox" value="Unglücksfilm" <?php if(in_array('Unglücksfilm', $subs)) echo 'checked'; ?> name="sub-Katastrophenfilm[]" id="sub-Katastrophenfilm-3">
+									<label for="sub-Katastrophenfilm-3">Unglücksfilm</label>
 									<br>
 								</fieldset>
 							</fieldset>
