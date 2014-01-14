@@ -12,7 +12,7 @@
 	<title><?php echo $title ?></title>
 	<meta name="author" content="<?php echo $authors ?>">
 	<meta name="date" content="<?php echo $last_mod ?>">
-	<!-- <meta name="viewport" content="width=device-width"> -->
+	<meta name="viewport" content="width=device-width">
 	<link rel="stylesheet" href="css/bootstrap.min.css">
 	<link rel="stylesheet" href="css/dvd.css">
 	<link rel="stylesheet" href="css/font-awesome.min.css">
@@ -120,6 +120,6 @@
 		});
 	</script>
 	<?php mysql_close($connect); ?>
-	<?php include "inc/template-add-entry.php"; ?>
+	<?php if($add == true) {include "inc/template-add-entry.php";} ?>
 </body>
 </html>

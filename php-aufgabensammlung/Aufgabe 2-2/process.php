@@ -10,13 +10,14 @@
 	$geschlecht	= $_POST['gender']; 
 	$ziele 		= $_POST['checkbox-list'];
 
-// Wir estellen eine Funktion für die Geschlechtsausgabe
-// Als erstes werden zwei Parameter festgelegt, die später als Variablen verwendet werden können, in diesem Fall sind das die Parameter $form und $gender 
-// Innerhalb dieser Funktion werden auch zwei Variablen $woman und $man gesetzt  
-// Im nächsten Schritt wird geprüft ob ein Radiobutton gesetzt ist
-// Ist der Parameter $form gleich true, dann bekommen die Variablen $woman und $man jeweils ein Wert: Frau oder Mann
-// Ist der Parameter $form ungleich true, dann bokommen die Variablen $woman und $man ein anderes Wert: Sie oder Er
-// Mit dem Befehl return wird überprüft, ob Frau oder Herr ausgewählt wurde und dann werden die entsprechende Werte ausgegeben
+	// Wir estellen eine Funktion für die Geschlechtsausgabe
+	// Als erstes werden zwei Parameter festgelegt, die später als Variablen 
+	// verwendet werden können, in diesem Fall sind das die Parameter $form und $gender 
+	// Innerhalb dieser Funktion werden auch zwei Variablen $woman und $man gesetzt  
+	// Im nächsten Schritt wird geprüft ob ein Radiobutton gesetzt ist
+	// Ist der Parameter $form gleich true, dann bekommen die Variablen $woman und $man jeweils ein Wert: Frau oder Mann
+	// Ist der Parameter $form ungleich true, dann bokommen die Variablen $woman und $man ein anderes Wert: Sie oder Er
+	// Mit dem Befehl return wird überprüft, ob Frau oder Herr ausgewählt wurde und dann werden die entsprechende Werte ausgegeben
 
 	function gender($form, $gender) {
 		$woman; 
@@ -48,13 +49,14 @@
 	</header>
 	<div class="alert">
 		<!-- Hier werden die Variablen als Text ausgegeben -->
-		<p><strong><?php echo gender(true, $geschlecht) . ' ' . $vorname . ' ' . $nachname ?></strong> schreibt uns am <?php echo $date ?> : <br><?php echo $bericht ?></p>
-		<p><?php echo gender(true, $geschlecht) . ' ' . $vorname . ' ' . $nachname ?> hat folgende Ziele:</p>
+		<p><strong><?php echo gender(true, $geschlecht).' '.$vorname.' '.$nachname ?></strong> schreibt uns am <?php echo $date ?> : <br><?php echo $bericht ?></p>
+
+		<p><?php echo gender(true, $geschlecht).' '.$vorname.' '.$nachname ?> hat folgende Ziele:</p>
 		<ul>
 		<!-- Foreach-Schleife um alle arrays als eine Liste auszugeben -->
 			<?php 
 				foreach($ziele as $ziel) {
-					echo '<li>' . $ziel . '</li>';
+					echo '<li>'.$ziel.'</li>';
 				}
 			?>
 		</ul>

@@ -14,7 +14,7 @@
 	mysql_select_db($mysql_db, $connect) or die("Datenbank nicht gefunden");
 
 	$tabelle = "schueler";
-	$sql_result = mysql_query("SELECT * FROM $tabelle);
+	$sql_result = mysql_query("SELECT * FROM $tabelle");
 
 ?>
 <html lang="de">

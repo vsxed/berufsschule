@@ -101,7 +101,7 @@
 	<style>
 		@import url(http://fonts.googleapis.com/css?family=Lato:100,400,700);
 		@import url(http://fonts.googleapis.com/css?family=Alegreya+Sans+SC:800);
-		body 						{background: black; font-family: 'Lato', helvetica, sans-serif; font-weight: 400; -webkit-transition: background 1s ease-in-out;}
+		body 						{background: black; font-family: 'Lato', helvetica, sans-serif; font-weight: 400; -webkit-transition: background 1s ease-in-out;-moz-transition: background 1s ease-in-out;transition: background 1s ease-in-out;}
 		body.op 					{background: #EEE;}
 		h1 							{font-family: "Alegreya Sans SC", sans-serif;text-transform: uppercase;font-weight: 800; font-size: 23px; display: inline-block; font-size: 28px; letter-spacing: 1.4px;}
 		fieldset 					{border:none; padding: 0; margin: 0 0 15px;}
@@ -111,10 +111,10 @@
 		.wrapper > section 			{background: #222 ; position: absolute; -webkit-backface-visibility: hidden; -webkit-transition: -webkit-transform 1s ease-in-out; width: 100%; min-height: 600px; padding: 20px 40px; border-radius: 10px}
 		.error 						{border: red 2px solid; background: #381818;}
 		.error-text 				{color: red;}
-		.form 						{-webkit-transform: perspective(600px) rotateY(0deg); z-index: 4;}
-		.comments 					{-webkit-transform: perspective(600px) rotateY(180deg); z-index: 2;}
-		.form.animate 				{-webkit-transform: perspective(600px) rotateY(180deg);}
-		.comments.animate 			{-webkit-transform: perspective(600px) rotateY(360deg);}
+		.form 						{-webkit-transform: perspective(600px) rotateY(0deg); z-index: 4; -moz-transform: perspective(600px) rotateY(0deg); z-index: 4; transform: perspective(600px) rotateY(0deg); z-index: 4;}
+		.comments 					{-webkit-transform: perspective(600px) rotateY(180deg); z-index: 2;-moz-transform: perspective(600px) rotateY(180deg); z-index: 2;transform: perspective(600px) rotateY(180deg); z-index: 2;}
+		.form.animate 				{-webkit-transform: perspective(600px) rotateY(180deg);-moz-transform: perspective(600px) rotateY(180deg);transform: perspective(600px) rotateY(180deg);}
+		.comments.animate 			{-webkit-transform: perspective(600px) rotateY(360deg);-moz-transform: perspective(600px) rotateY(360deg);transform: perspective(600px) rotateY(360deg);}
 		fieldset.block 				{display: block;width: 49%;}
 		input, textarea 			{padding: 0;margin: 0;border: 2px solid transparent; box-sizing: border-box; padding: 8px; background: #444; border-radius: 4px; color: white;}
 		fieldset.block label, 
@@ -171,6 +171,7 @@
 					<textarea class="<?php echo $reiseberichtError; ?>" name="reisebericht"><?php echo $reisebericht ?></textarea>
 				</fieldset>
 				<fieldset>
+					<legend>Welche Ziele würdest du noch gerne bereisen?</legend>
 					<input value="Mazedonien" name="checkbox-list[]" type="checkbox" <?php if(in_array('Mazedonien', $checkboxes)) echo "checked";?> id="input-1">
 					<label for="input-1">Mazedonien</label>
 					<br>
@@ -209,11 +210,7 @@
 						$items = array_reverse($xml->xpath('eintrag'));
 						// Foreach um alle nacheinander auszugeben. Dabei nutzen wir unsere coole gender()-Funktion und setzen den Flag $form auf true um ein anderes Wording per Geschlecht zu bekommen.
 						foreach($items as $entries) {
-							echo '<li><div class="entry"><span>Ein Reisebericht von</span>';
-							echo '<h4>' . gender(true, $entries->sex) . ' ' . $entries->name . '</h4>';
-							echo '<span>' . gender(false, $entries->sex) . ' schrieb am ' . $entries->datum . '</span>';
-							echo '<p>' . $entries->bericht . '</p>';
-							echo '<span class="ziele">' . gender(false, $entries->sex) . ' hat desweiteren noch folgende Ziele: <br><strong>' . $entries->ziele . '<strong></div></li>';
+							echo '<li><div class="entry"><span>Ein Reisebericht von</span><h4>'.gender(true, $entries->sex).' '.$entries->name.'</h4><span>'.gender(false, $entries->sex).' schrieb am '.$entries->datum.'</span><p>'.$entries->bericht.'</p><span class="ziele">'.gender(false, $entries->sex).' hat desweiteren noch folgende Ziele: <br><strong>'.$entries->ziele.'<strong></div></li>';
 						}
 					?>
 				</ul>

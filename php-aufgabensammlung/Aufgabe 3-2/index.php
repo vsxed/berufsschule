@@ -40,7 +40,12 @@
 			$fehlermeldung = 'Bitte füllen Sie alle notwendigen Felder aus…';
 			// Falls Checkboxen angeklickt wurden, soll das Array mitgeliefert werden und in den einzelnen Checkboxen wird mit in_array geprüft, ob das Reiseziel sich im Array befindet. Wenn ja, bleiben die jeweils angeklickten Checkboxen beim Validieren gechecked und werden nicht resettet.
 			$checkboxes = $_POST["checkbox-list"];
-		} 
+		} else {
+			if(isset($_POST["submit"])) {
+				$fehlermeldung = "Daten erfolgreich abgeschickt!";
+			}
+			$checkboxes = $_POST["checkbox-list"];
+		}
 	}
 ?>
 <html lang="de">
@@ -138,9 +143,10 @@
 			</fieldset>
 			<fieldset>
 				<label for="bericht">Dein Urlaubserlebnis</label>
-				<textarea class="<?php echo $reiseberichtError; ?>" name="bericht"></textarea>
+				<textarea class="<?php echo $reiseberichtError; ?>" name="reisebericht"><?php echo $reisebericht; ?></textarea>
 			</fieldset>
 			<fieldset class="checkbox">
+				<legend>Welche Ziele würdest du noch gerne bereisen?</legend>
 				<input value="Mazedonien" name="checkbox-list[]" type="checkbox" <?php if(in_array('Mazedonien', $checkboxes)) echo "checked";?> id="input-1">
 				<label for="input-1">Mazedonien</label>
 				<br>
@@ -162,7 +168,7 @@
 				<input value="USA" name="checkbox-list[]" <?php if(in_array('USA', $checkboxes)) echo "checked";?> type="checkbox" id="input-7">
 				<label for="input-7">USA</label>
 			</fieldset>
-			<input type="submit" value="Absenden">
+			<input name="submit" type="submit" value="Absenden">
 		</form>
 	</section>
 </body>
