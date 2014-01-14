@@ -18,7 +18,7 @@
 	}
 
 	// Erstmal schön alle Variablen erstellen und leer machen. 
-	$vornameError = $nachnameError = $reiseberichtError = $checkboxError = $vorname = $nachname = $reisebericht = $fehlermeldung = $ziele = '';
+	$vornameError = $nachnameError = $reiseberichtError = $vorname = $nachname = $reisebericht = $fehlermeldung = '';
 
 	if ($_SERVER["REQUEST_METHOD"] == "POST") {
 		$geschlecht = $_POST['gender'];
@@ -35,7 +35,7 @@
 		if (empty($_POST['reisebericht'])) {$reiseberichtError = 'error';} 
 		else {$reisebericht = secure($_POST['reisebericht']);}
 
-		// Schauen, ob alles was notwendig ist nicht leer ist und es in die XML-Datei schieben
+		// Schauen, ob alles was notwendig ist nicht leer ist
 		if (empty($nachname) || empty($vorname) || empty($reisebericht)) {
 			$fehlermeldung = 'Bitte füllen Sie alle notwendigen Felder aus…';
 			// Falls Checkboxen angeklickt wurden, soll das Array mitgeliefert werden und in den einzelnen Checkboxen wird mit in_array geprüft, ob das Reiseziel sich im Array befindet. Wenn ja, bleiben die jeweils angeklickten Checkboxen beim Validieren gechecked und werden nicht resettet.
@@ -44,7 +44,7 @@
 			if(isset($_POST["submit"])) {
 				$fehlermeldung = "Daten erfolgreich abgeschickt!";
 			}
-			$checkboxes = $_POST["checkbox-list"];
+			$vornameError = $nachnameError = $geschlecht = $reiseberichtError = $vorname = $nachname = $reisebericht = $checkboxes = '';
 		}
 	}
 ?>
