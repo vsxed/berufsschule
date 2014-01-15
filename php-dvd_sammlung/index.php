@@ -1,7 +1,8 @@
 <?php 
 	include "inc/inc.php";
 	include "inc/database.php";
-	include "inc/add-entry.php";
+	include "inc/function-add.php";
+	include "inc/function-search.php";
 	$abfrage = "SELECT * FROM dvd ORDER BY dvd_id DESC";
 	$ergebnis = mysql_query($abfrage);
 ?>
@@ -20,7 +21,10 @@
 <body>
 	<header>
 		<section class="innerwrap">
-			<!-- Wenn die Funktion zum Hinzufügen von Einträgen nicht included wird, ist $add = false und dementsprechend wird dann die entsprechende Funktionalität aus dem Front End entfernt. Weil wer braucht schon einen Hinzufügen-Button wenn dieser keine Funktionalität hat? ;) LG Eduard -->
+			<!-- Wenn die Funktion zum Hinzufügen von Einträgen nicht included wird, ist $add = false oder $search = false und dementsprechend wird dann die entsprechende Funktionalität aus dem Front End entfernt. Weil wer braucht schon einen Hinzufügen-Button wenn dieser keine Funktionalität hat? ;) LG Eduard -->
+			<div id="search-item" style="margin-right: 10px;" class="left<?php if($search == false) {echo ' deactivated';} ?>">
+				<button class="btn btn-primary btn-lg" data-toggle="modal" data-target="#search">Suchen</button>
+			</div>
 			<div id="add-item" class="<?php if($add == false) {echo ' deactivated';} ?>">
 				<button class="btn btn-primary btn-lg" data-toggle="modal" data-target="#add">Film hinzufügen</button>
 			</div>
@@ -30,7 +34,7 @@
 		<?php 
 			while ($film = mysql_fetch_array($ergebnis)) {
 				echo '<article class="dvd-element">';
-				echo '<img class="blur" src="'.$film["dvd_cover"].'" alt="" />';
+				// echo '<img class="blur" src="'.$film["dvd_cover"].'" alt="" />';
 				echo '<section class="innerwrap">
 				<div class="cover"><img class="cover-img" src="'.$film["dvd_cover"].'" alt="'.$film["dvd_titel"].'"><img class="fsk" src="img/fsk-'.$film["dvd_fsk"].'.png" alt="FSK '.$film["dvd_fsk"].'" /></div>
 				<div class="info">
@@ -61,6 +65,7 @@
 			// Wenn das Formular validiert wurde und Einträge fehlen, dann wird das Modal-Window wieder aufgerufen,
 			// sodass man die Validierung sieht.
 			<?php if($fail != NULL) {echo "$('#add').modal('show')";} ?>
+			<?php if($search == true) {echo "$('#search').modal('show')";} ?>
 			// 
 			// (c) by Eduard Mayer
 			// 12. Januar 2014
@@ -121,5 +126,6 @@
 	</script>
 	<?php mysql_close($connect); ?>
 	<?php if($add == true) {include "inc/template-add-entry.php";} ?>
+	<?php if($search == true) {include "inc/template-search-entry.php";} ?>
 </body>
 </html>

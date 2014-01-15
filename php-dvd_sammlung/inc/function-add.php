@@ -14,7 +14,7 @@
 	    return $string;
 	}
 
-	if ($_SERVER["REQUEST_METHOD"] == "POST") { 
+	if (isset($_POST["speichern"])) { 
 		// Titel validieren + sicher weitergeben
 		if (empty($_POST['entry_title'])) {$titleError = 'error';} 
 		else {$entry_title = secure($_POST['entry_title']);}
