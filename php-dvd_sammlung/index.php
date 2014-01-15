@@ -34,7 +34,7 @@
 		<?php 
 			while ($film = mysql_fetch_array($ergebnis)) {
 				echo '<article class="dvd-element">';
-				// echo '<img class="blur" src="'.$film["dvd_cover"].'" alt="" />';
+				echo '<img class="blur" src="'.$film["dvd_cover"].'" alt="" />';
 				echo '<section class="innerwrap">
 				<div class="cover"><img class="cover-img" src="'.$film["dvd_cover"].'" alt="'.$film["dvd_titel"].'"><img class="fsk" src="img/fsk-'.$film["dvd_fsk"].'.png" alt="FSK '.$film["dvd_fsk"].'" /></div>
 				<div class="info">
@@ -65,7 +65,7 @@
 			// Wenn das Formular validiert wurde und Einträge fehlen, dann wird das Modal-Window wieder aufgerufen,
 			// sodass man die Validierung sieht.
 			<?php if($fail != NULL) {echo "$('#add').modal('show')";} ?>
-			<?php if($search == true) {echo "$('#search').modal('show')";} ?>
+			// <?php if($search == true) {echo "$('#search').modal('show')";} ?>
 			// 
 			// (c) by Eduard Mayer
 			// 12. Januar 2014

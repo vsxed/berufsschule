@@ -33,12 +33,6 @@ header {
   position: fixed;
   z-index: 9;
 }
-@media screen and (max-width: 640px) {
-  /* line 27, ../sass/dvd.scss */
-  header {
-    position: relative;
-  }
-}
 /* line 35, ../sass/dvd.scss */
 header #search {
   width: 100%;
@@ -72,7 +66,7 @@ header input {
   top: 72px;
 }
 
-/* line 66, ../sass/dvd.scss */
+/* line 67, ../sass/dvd.scss */
 h1 {
   font-family: "Alegreya Sans SC", sans-serif;
   text-transform: uppercase;
@@ -80,27 +74,27 @@ h1 {
   line-height: 0;
 }
 
-/* line 73, ../sass/dvd.scss */
+/* line 74, ../sass/dvd.scss */
 h2, h3, h4 {
   font-family: "Lato", sans-serif;
   margin: 0;
   line-height: 1.3;
 }
 
-/* line 88, ../sass/dvd.scss */
+/* line 89, ../sass/dvd.scss */
 .innerwrap {
   width: 100%;
   max-width: 900px;
   margin: 0 auto;
 }
-/* line 81, ../sass/dvd.scss */
+/* line 82, ../sass/dvd.scss */
 .innerwrap:after {
   display: table;
   content: '';
   clear: both;
 }
 
-/* line 96, ../sass/dvd.scss */
+/* line 97, ../sass/dvd.scss */
 .dvd-element {
   display: table;
   width: 100%;
@@ -108,7 +102,7 @@ h2, h3, h4 {
   position: relative;
   overflow: hidden;
 }
-/* line 108, ../sass/dvd.scss */
+/* line 109, ../sass/dvd.scss */
 .dvd-element .blur {
   -webkit-transform: scale(5);
   transform: scale(5);
@@ -120,28 +114,35 @@ h2, h3, h4 {
   opacity: 1;
   z-index: -1;
 }
-/* line 121, ../sass/dvd.scss */
+/* line 122, ../sass/dvd.scss */
 .dvd-element .cover {
   width: 215px;
   display: table-cell;
   position: relative;
   background: rgba(255, 255, 255, 0.25);
 }
-/* line 129, ../sass/dvd.scss */
+@media screen and (max-width: 640px) {
+  /* line 122, ../sass/dvd.scss */
+  .dvd-element .cover {
+    display: block;
+    width: 100%;
+  }
+}
+/* line 134, ../sass/dvd.scss */
 .dvd-element .cover .cover-img {
   width: 100%;
   min-width: 215px;
   display: block;
   margin: 0;
 }
-/* line 135, ../sass/dvd.scss */
+/* line 140, ../sass/dvd.scss */
 .dvd-element .cover .fsk {
   position: absolute;
   width: 61px;
   top: 0;
   left: 0;
 }
-/* line 143, ../sass/dvd.scss */
+/* line 148, ../sass/dvd.scss */
 .dvd-element .info {
   background: -moz-linear-gradient(left, rgba(255, 255, 255, 0.25) 0%, rgba(255, 255, 255, 0.25) 17%, rgba(255, 255, 255, 0) 70%);
   background: -webkit-gradient(linear, left top, right top, color-stop(0%, rgba(255, 255, 255, 0.25)), color-stop(17%, rgba(255, 255, 255, 0.25)), color-stop(70%, rgba(255, 255, 255, 0)));
@@ -155,54 +156,60 @@ h2, h3, h4 {
   vertical-align: top;
   padding: 20px 25px;
 }
-/* line 157, ../sass/dvd.scss */
+@media screen and (max-width: 640px) {
+  /* line 148, ../sass/dvd.scss */
+  .dvd-element .info {
+    display: block;
+  }
+}
+/* line 165, ../sass/dvd.scss */
 .dvd-element .info h3 {
   color: white;
   text-shadow: 0 2px 7px rgba(0, 0, 0, 0.4);
   font-size: 2.3rem;
 }
 @media screen and (max-width: 640px) {
-  /* line 157, ../sass/dvd.scss */
+  /* line 165, ../sass/dvd.scss */
   .dvd-element .info h3 {
     font-size: 1rem;
   }
 }
-/* line 166, ../sass/dvd.scss */
+/* line 174, ../sass/dvd.scss */
 .dvd-element .info h3 span {
   display: block;
   font-size: 1rem;
 }
-/* line 172, ../sass/dvd.scss */
+/* line 180, ../sass/dvd.scss */
 .dvd-element .info p {
   color: white;
 }
 
-/* line 181, ../sass/dvd.scss */
+/* line 189, ../sass/dvd.scss */
 .modal-dialog.search .modal-header {
   border-bottom: 0;
 }
-/* line 182, ../sass/dvd.scss */
+/* line 190, ../sass/dvd.scss */
 .modal-dialog.search .modal-footer {
   border-top: 0;
   margin-top: 0;
 }
-/* line 183, ../sass/dvd.scss */
+/* line 191, ../sass/dvd.scss */
 .modal-dialog.search .modal-body {
   padding: 0 20px;
 }
-/* line 184, ../sass/dvd.scss */
+/* line 192, ../sass/dvd.scss */
 .modal-dialog.search .modal-title {
   display: inline;
 }
-/* line 185, ../sass/dvd.scss */
+/* line 193, ../sass/dvd.scss */
 .modal-dialog.search .invis-radio {
   display: inline;
 }
-/* line 188, ../sass/dvd.scss */
+/* line 196, ../sass/dvd.scss */
 .modal-dialog.search .invis-radio input[type=radio] {
   display: none;
 }
-/* line 189, ../sass/dvd.scss */
+/* line 197, ../sass/dvd.scss */
 .modal-dialog.search .invis-radio label {
   display: inline;
   margin-bottom: 0;
@@ -213,65 +220,65 @@ h2, h3, h4 {
   color: #E4E4E4;
   margin-right: 10px;
 }
-/* line 190, ../sass/dvd.scss */
+/* line 198, ../sass/dvd.scss */
 .modal-dialog.search .invis-radio input[type=radio]:checked + label {
   color: black;
 }
-/* line 192, ../sass/dvd.scss */
+/* line 200, ../sass/dvd.scss */
 .modal-dialog.search .invis-radio input[type=radio]:checked + label:after, .modal-dialog.search .invis-radio input[type=radio]:checked + label:before {
   display: inline;
 }
-/* line 193, ../sass/dvd.scss */
+/* line 201, ../sass/dvd.scss */
 .modal-dialog.search .invis-radio input[type=radio]:checked + label:before {
   content: 'Nach ';
 }
-/* line 194, ../sass/dvd.scss */
+/* line 202, ../sass/dvd.scss */
 .modal-dialog.search .invis-radio input[type=radio]:checked + label:after {
   content: ' suchen';
 }
 
-/* line 81, ../sass/dvd.scss */
+/* line 82, ../sass/dvd.scss */
 .modal-body:after {
   display: table;
   content: '';
   clear: both;
 }
-/* line 202, ../sass/dvd.scss */
+/* line 210, ../sass/dvd.scss */
 .modal-body input, .modal-body textarea, .modal-body select {
   display: block;
   margin-bottom: 10px;
 }
-/* line 206, ../sass/dvd.scss */
+/* line 214, ../sass/dvd.scss */
 .modal-body input:last-of-type, .modal-body textarea:last-of-type, .modal-body select:last-of-type {
   margin-bottom: 0;
 }
-/* line 211, ../sass/dvd.scss */
+/* line 219, ../sass/dvd.scss */
 .modal-body textarea {
   min-height: 150px;
 }
-/* line 214, ../sass/dvd.scss */
+/* line 222, ../sass/dvd.scss */
 .modal-body label {
   float: left;
   margin-bottom: 10px;
   width: 100%;
   font-weight: normal;
 }
-/* line 221, ../sass/dvd.scss */
+/* line 229, ../sass/dvd.scss */
 .modal-body label.pflicht {
   font-weight: bold;
 }
-/* line 225, ../sass/dvd.scss */
+/* line 233, ../sass/dvd.scss */
 .modal-body label small {
   font-weight: normal !important;
   color: #BBB;
 }
-/* line 231, ../sass/dvd.scss */
+/* line 239, ../sass/dvd.scss */
 .modal-body .inline {
   display: inline;
   margin-left: 20px;
   cursor: pointer;
 }
-/* line 236, ../sass/dvd.scss */
+/* line 244, ../sass/dvd.scss */
 .modal-body .inline label, .modal-body .inline input {
   display: inline;
   width: auto;
@@ -279,78 +286,78 @@ h2, h3, h4 {
   cursor: inherit;
   max-width: initial;
 }
-/* line 244, ../sass/dvd.scss */
+/* line 252, ../sass/dvd.scss */
 .modal-body .inline input {
   margin-right: 7px;
 }
-/* line 245, ../sass/dvd.scss */
+/* line 253, ../sass/dvd.scss */
 .modal-body .inline label {
   font-size: 0.75em;
   color: #428BCA;
 }
-/* line 249, ../sass/dvd.scss */
+/* line 257, ../sass/dvd.scss */
 .modal-body .inline label:hover {
   text-decoration: underline;
 }
-/* line 252, ../sass/dvd.scss */
+/* line 260, ../sass/dvd.scss */
 .modal-body .toggle-all {
   font-size: 0.75em;
   color: #428BCA;
   margin-left: 10px;
 }
-/* line 258, ../sass/dvd.scss */
+/* line 266, ../sass/dvd.scss */
 .modal-body .genre-wrap {
   width: 50%;
   float: left;
   font-size: 0.75em;
 }
-/* line 263, ../sass/dvd.scss */
+/* line 271, ../sass/dvd.scss */
 .modal-body .genre-wrap.extend {
   margin-bottom: 30px;
 }
-/* line 264, ../sass/dvd.scss */
+/* line 272, ../sass/dvd.scss */
 .modal-body .genre-wrap input, .modal-body .genre-wrap label {
   display: inline;
   float: none;
 }
-/* line 265, ../sass/dvd.scss */
+/* line 273, ../sass/dvd.scss */
 .modal-body .genre-wrap input {
   margin-right: 7px;
 }
-/* line 266, ../sass/dvd.scss */
+/* line 274, ../sass/dvd.scss */
 .modal-body .genre-wrap .subgenre {
   padding-left: 20px;
   display: none;
 }
-/* line 269, ../sass/dvd.scss */
+/* line 277, ../sass/dvd.scss */
 .modal-body .genre-wrap .subgenre input, .modal-body .genre-wrap .subgenre label {
   display: inline;
   float: none;
   margin-bottom: 0;
 }
 
-/* line 274, ../sass/dvd.scss */
+/* line 282, ../sass/dvd.scss */
 .left {
   float: left;
 }
 
-/* line 275, ../sass/dvd.scss */
+/* line 283, ../sass/dvd.scss */
 .right {
   float: right;
 }
 
-/* line 276, ../sass/dvd.scss */
+/* line 284, ../sass/dvd.scss */
 .deactivated {
   display: none !important;
 }
 
-/* line 277, ../sass/dvd.scss */
+/* line 285, ../sass/dvd.scss */
 .error {
   border: red 2px solid;
   background: #EEBEBE;
 }
 
-/* line 278, ../sass/dvd.scss */
+/* line 286, ../sass/dvd.scss */
 p.error {
   background: none;
   border: 0;
