@@ -28,7 +28,7 @@ header {
 	background: black;
 	padding: 20px 40px;
 	color: white;
-	position: fixed;
+	position: relative;
 	z-index: 9;
 	// @media screen and (max-width: 640px) {position: relative;}
 
@@ -60,8 +60,15 @@ header {
 }
 .wrapper {
 	position: relative;
-	top: 72px;
+	// top: 72px;
 	// background: #1d1d1d;
+}
+.padding {
+	padding: 20px 0;
+
+	@media screen and (max-width: 900px) {
+		padding: 20px 40px;
+	}
 }
 
 h1 {
@@ -284,3 +291,4 @@ h2, h3, h4 {
 .deactivated {display: none !important;}
 .error {border: red 2px solid; background: #EEBEBE;}
 p.error {background: none; border: 0; color: red; font-weight: bold;}
+.blue {color: #428BCA;}

@@ -2,7 +2,7 @@
 	<div class="modal fade" id="search" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
 	  <div class="modal-dialog search">
 	    <div class="modal-content">
-	    	<form action="<?php echo $_SERVER["PHP_SELF"] ?>" method="GET">
+	    	<form action="<?php echo $_SERVER["PHP_SELF"]?>" method="GET">
 	      <div class="modal-header">
 	        <fieldset class="invis-radio">
 	        	<input type="radio" name="type" id="filmtitle" checked value="title">

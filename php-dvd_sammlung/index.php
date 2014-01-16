@@ -32,18 +32,38 @@
 	</header>
 	<section class="wrapper">
 		<?php 
-			while ($film = mysql_fetch_array($ergebnis)) {
-				echo '<article class="dvd-element">';
-				echo '<img class="blur" src="'.$film["dvd_cover"].'" alt="" />';
-				echo '<section class="innerwrap">
-				<div class="cover"><img class="cover-img" src="'.$film["dvd_cover"].'" alt="'.$film["dvd_titel"].'"><img class="fsk" src="img/fsk-'.$film["dvd_fsk"].'.png" alt="FSK '.$film["dvd_fsk"].'" /></div>
-				<div class="info">
-				<h3 class="titel">'.$film["dvd_titel"].' <span class="jahr">('.$film["dvd_jahr"].')</span></h3>
-				<p class="genre">'.$film["dvd_genre"].'</p>
-				<p class="dauer">'.$film["dvd_dauer"].' Minuten</p>
-				<p class="description">'.$film["dvd_beschreibung"].'</p>
-				</div></section></article>';
-			} 
+			if ($_GET['type'] == NULL) {
+				while ($film = mysql_fetch_array($ergebnis)) {
+					echo '<article class="dvd-element">';
+					echo '<img class="blur" src="'.$film["dvd_cover"].'" alt="" />';
+					echo '<section class="innerwrap">
+					<div class="cover"><img class="cover-img" src="'.$film["dvd_cover"].'" alt="'.$film["dvd_titel"].'"><img class="fsk" src="img/fsk-'.$film["dvd_fsk"].'.png" alt="FSK '.$film["dvd_fsk"].'" /></div>
+					<div class="info">
+					<h3 class="titel">'.$film["dvd_titel"].' <span class="jahr">('.$film["dvd_jahr"].')</span></h3>
+					<p class="genre">'.$film["dvd_genre"].'</p>
+					<p class="dauer">'.$film["dvd_dauer"].' Minuten</p>
+					<p class="description">'.$film["dvd_beschreibung"].'</p>
+					</div></section></article>';
+				} 
+			} else {
+				// todo
+				echo '	<section class="padding innerwrap">
+						<a href="index.php" class="btn btn-default">&laquo; Zurück zum Index</a>
+						<p class="lead">Die Suche nach <strong class="blue">'.$query.'</strong> ergab '.$num_query.' Treffer.</p>
+						</section>';
+				while ($suche = mysql_fetch_array($searchquery)) {
+					echo '<article class="dvd-element">';
+					echo '<img class="blur" src="'.$suche["dvd_cover"].'" alt="" />';
+					echo '<section class="innerwrap">
+					<div class="cover"><img class="cover-img" src="'.$suche["dvd_cover"].'" alt="'.$suche["dvd_titel"].'"><img class="fsk" src="img/fsk-'.$suche["dvd_fsk"].'.png" alt="FSK '.$suche["dvd_fsk"].'" /></div>
+					<div class="info">
+					<h3 class="titel">'.$suche["dvd_titel"].' <span class="jahr">('.$suche["dvd_jahr"].')</span></h3>
+					<p class="genre">'.$suche["dvd_genre"].'</p>
+					<p class="dauer">'.$suche["dvd_dauer"].' Minuten</p>
+					<p class="description">'.$suche["dvd_beschreibung"].'</p>
+					</div></section></article>';
+				}
+			}
 		?>
 	</section>
 	<script src="http://code.jquery.com/jquery-1.8.2.min.js"></script>
