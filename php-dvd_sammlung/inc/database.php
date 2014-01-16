@@ -14,9 +14,13 @@
 
 	// Funktion zum Überprüfen, ob eine Tabelle bereits existiert.
 	// Dabei wird die PHP-Funktion mysql_num_rows verwendet um die Anzahl der Reihen in der Ausgabe zu liefern.
-	// Im Idealfall sollte eine 1 ausgegeben werden (wenn die Tabelle existiert). Ansonsten ist es null oder >1.
-	function check($table) {
-		$cmd = mysql_query("SHOW TABLES LIKE '".$table."'");
+	// Im Idealfall sollte mindestens 1 ausgegeben werden (wenn die Tabelle existiert oder Daten existieren).
+	// Erweiterung: an kann nun zwischen "table" und "data" wählen um entweder zu prüfen
+	// ob eine Tabelle oder Daten existieren oder nicht. Fuck yeah.
+	function check($target, $table) {
+		if ($target == 'table') 	{$cmd = mysql_query("SHOW TABLES LIKE '".$table."'");}
+		else if ($target == 'data') {$cmd = mysql_query("SELECT * FROM ".$table);}
+
 		$result = mysql_num_rows($cmd);
 		return $result;
 	}
@@ -29,9 +33,13 @@
 
 	// Die DVDs
 	// --------
-	// Wir prüfen, ob es eine Tabelle mit dem Namen "dvd" bereits gibt. Wenn nicht, erstellen wir diese und fügen Inhalte aus unserer XML hinzu.
-	if (check("dvd") != 1) {
+	// Wir prüfen, ob es eine Tabelle mit dem Namen "dvd" bereits gibt. Wenn nicht, erstellen wir diese.
+	// Danach prüfen wir, ob die Tabelle leer ist. Wenn dies der Fall ist, befüllen wir die leere Tabelle.
+	if (check("table", "dvd") != 1) {
 		mysql_query("CREATE TABLE dvd (dvd_id int(11) NOT NULL AUTO_INCREMENT, dvd_titel varchar(255) NOT NULL, dvd_regie varchar(255) NOT NULL, dvd_jahr int(4) NOT NULL, dvd_dauer int(3) NOT NULL, dvd_fsk int(2), dvd_genre varchar(255) NOT NULL, dvd_subgenre varchar(255), dvd_beschreibung varchar(255), dvd_cover varchar(255), PRIMARY KEY (dvd_id)) default charset=utf8");
+	} 
+
+	if (check("data", "dvd") == 0) {
 		foreach ($dvds as $dvd) {
 			mysql_query("INSERT INTO dvd (dvd_titel, dvd_regie, dvd_jahr, dvd_dauer, dvd_fsk, dvd_genre, dvd_subgenre ,dvd_beschreibung, dvd_cover) VALUES ('".$dvd->titel."', '".$dvd->regie."', '".$dvd->jahr."', '".$dvd->dauer."', '".$dvd->fsk."', '".$dvd->genre."', '".$dvd->subgenre."', '".$dvd->beschreibung."', '".$dvd->cover."')");
 		}

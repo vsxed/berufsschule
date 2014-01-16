@@ -1,4 +1,4 @@
-<!-- Modal für Eingabemaske um Film hinzuzufügen -->
+<!-- Modal für Eingabemaske um Film zu suchen -->
 	<div class="modal fade" id="search" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
 	  <div class="modal-dialog search">
 	    <div class="modal-content">
@@ -12,7 +12,6 @@
 		        <input type="radio" name="type" id="filmfsk" value="fsk">
 		        <label for="filmfsk">Altersbeschränkung</label>
 	        </fieldset>
-	        <!-- Wenn die Validierung etwas findet, was nicht passt, wird hier eine Fehlermeldung erstellt und unter dem Titel des Modals eingefügt. -->
 	      </div>
 	      <div class="modal-body">
 	      	<!-- Unsere Eingabemaske -->
@@ -20,7 +19,7 @@
 			  		<input type="text" class="form-control" name="query" placeholder="Wähle oben aus, wonach du suchen willst und gib hier deinen Suchbegriff ein…">
 			  	</fieldset>
 			  	<div class="genre-help">
-			  		<a href="#" class="blue" id="genre-help-toggle"><small>Brauchst du Hilfe bei den Genres?</small></a>
+			  		<a href="#" class="blue" id="genre-help-toggle"><small>Brauchst du Hilfe bei der Genre-Auswahl?</small></a>
 			  		<div class="genre-help-container">
 			  			<small>Klicke einfach auf ein Genre um es ins Feld zu schreiben.</small>
 			  			<ul class="choose-from-list list-unstyled list-inline">

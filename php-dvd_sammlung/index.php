@@ -17,7 +17,6 @@
 	<meta name="viewport" content="width=device-width">
 	<link rel="stylesheet" href="css/bootstrap.min.css">
 	<link rel="stylesheet" href="css/dvd.css">
-	<link rel="stylesheet" href="css/font-awesome.min.css">
 </head>
 <body>
 	<header>
@@ -38,17 +37,17 @@
 					makelist($film);
 				} 
 			} else {
-				// todo
-				
+				$textprefix = 'Die Suche nach <strong class="blue">'.$query.'</strong> in der Kategorie <strong>'.$typetext.'</strong> ergab ';
+
 				if($num_query != 0) {
 					echo '	<section class="padding innerwrap">
 							<a href="index.php" class="btn btn-default">&laquo; Zurück zum Index</a>
-							<p class="lead">Die Suche nach <strong class="blue">'.$query.'</strong> in der Kategorie <strong>'.$typetext.'</strong> ergab '.$num_query.' Treffer.</p>
+							<p class="lead">'.$textprefix.$num_query.' Treffer.</p>
 							</section>';
 				} else {
 					echo '	<section class="padding innerwrap">
 							<a href="index.php" class="btn btn-default">&laquo; Zurück zum Index</a>
-							<p class="lead">Die Suche nach <strong class="blue">'.$query.'</strong> in der Kategorie <strong>'.$typetext.'</strong> ergab leider nichts.</p>
+							<p class="lead">'.$textprefix.'leider nichts.</p>
 							<img class="not-found" src="img/sad-robot.png" alt="Sad Robot" />
 							</section>';
 				}
@@ -59,7 +58,7 @@
 			}
 		?>
 	</section>
-	<script src="http://code.jquery.com/jquery-1.8.2.min.js"></script>
+	<script src="js/jquery.min.js"></script>
 	<script src="js/bootstrap.min.js"></script>
 	<script src="js/vague.js"></script>
 	<script>
@@ -76,14 +75,16 @@
 			// Wenn dies der Fall ist, wird der JS-Code ausgeführt.
 			// Was macht der Code? Nichts besonderes.
 			// Wenn das Formular validiert wurde und Einträge fehlen, dann wird das Modal-Window wieder aufgerufen,
-			// sodass man die Validierung sieht.
+			// sodass man die Validierung sieht und Daten ergänzen kann.
 			<?php if($fail != NULL) {echo "$('#add').modal('show')";} ?>
-			// 
+
 			// (c) by Eduard Mayer
 			// 12. Januar 2014
+			// 
 			// Genre-List Selector
 			// Genre-List Untoggler
 			// Suchkategorie-Wechsler
+			// Suchkategorien-Input
 			// 
 			// Variblen definieren -> Genres und Subgenres, Erweitert-Checkbox
 			var $genre 		= $('.entry_genre .genre-wrap > input');
