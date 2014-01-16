@@ -3,6 +3,7 @@
 	include "inc/database.php";
 	include "inc/function-add.php";
 	include "inc/function-search.php";
+	include "inc/template-list.php";
 	$abfrage = "SELECT * FROM dvd ORDER BY dvd_id DESC";
 	$ergebnis = mysql_query($abfrage);
 ?>
@@ -34,34 +35,26 @@
 		<?php 
 			if ($_GET['type'] == NULL) {
 				while ($film = mysql_fetch_array($ergebnis)) {
-					echo '<article class="dvd-element">';
-					echo '<img class="blur" src="'.$film["dvd_cover"].'" alt="" />';
-					echo '<section class="innerwrap">
-					<div class="cover"><img class="cover-img" src="'.$film["dvd_cover"].'" alt="'.$film["dvd_titel"].'"><img class="fsk" src="img/fsk-'.$film["dvd_fsk"].'.png" alt="FSK '.$film["dvd_fsk"].'" /></div>
-					<div class="info">
-					<h3 class="titel">'.$film["dvd_titel"].' <span class="jahr">('.$film["dvd_jahr"].')</span></h3>
-					<p class="genre">'.$film["dvd_genre"].'</p>
-					<p class="dauer">'.$film["dvd_dauer"].' Minuten</p>
-					<p class="description">'.$film["dvd_beschreibung"].'</p>
-					</div></section></article>';
+					makelist($film);
 				} 
 			} else {
 				// todo
-				echo '	<section class="padding innerwrap">
-						<a href="index.php" class="btn btn-default">&laquo; Zurück zum Index</a>
-						<p class="lead">Die Suche nach <strong class="blue">'.$query.'</strong> ergab '.$num_query.' Treffer.</p>
-						</section>';
+				
+				if($num_query != 0) {
+					echo '	<section class="padding innerwrap">
+							<a href="index.php" class="btn btn-default">&laquo; Zurück zum Index</a>
+							<p class="lead">Die Suche nach <strong class="blue">'.$query.'</strong> in der Kategorie <strong>'.$typetext.'</strong> ergab '.$num_query.' Treffer.</p>
+							</section>';
+				} else {
+					echo '	<section class="padding innerwrap">
+							<a href="index.php" class="btn btn-default">&laquo; Zurück zum Index</a>
+							<p class="lead">Die Suche nach <strong class="blue">'.$query.'</strong> in der Kategorie <strong>'.$typetext.'</strong> ergab leider nichts.</p>
+							<img class="not-found" src="img/sad-robot.png" alt="Sad Robot" />
+							</section>';
+				}
+
 				while ($suche = mysql_fetch_array($searchquery)) {
-					echo '<article class="dvd-element">';
-					echo '<img class="blur" src="'.$suche["dvd_cover"].'" alt="" />';
-					echo '<section class="innerwrap">
-					<div class="cover"><img class="cover-img" src="'.$suche["dvd_cover"].'" alt="'.$suche["dvd_titel"].'"><img class="fsk" src="img/fsk-'.$suche["dvd_fsk"].'.png" alt="FSK '.$suche["dvd_fsk"].'" /></div>
-					<div class="info">
-					<h3 class="titel">'.$suche["dvd_titel"].' <span class="jahr">('.$suche["dvd_jahr"].')</span></h3>
-					<p class="genre">'.$suche["dvd_genre"].'</p>
-					<p class="dauer">'.$suche["dvd_dauer"].' Minuten</p>
-					<p class="description">'.$suche["dvd_beschreibung"].'</p>
-					</div></section></article>';
+					makelist($suche);
 				}
 			}
 		?>
@@ -85,11 +78,12 @@
 			// Wenn das Formular validiert wurde und Einträge fehlen, dann wird das Modal-Window wieder aufgerufen,
 			// sodass man die Validierung sieht.
 			<?php if($fail != NULL) {echo "$('#add').modal('show')";} ?>
-			// <?php if($search == true) {echo "$('#search').modal('show')";} ?>
 			// 
 			// (c) by Eduard Mayer
 			// 12. Januar 2014
 			// Genre-List Selector
+			// Genre-List Untoggler
+			// Suchkategorie-Wechsler
 			// 
 			// Variblen definieren -> Genres und Subgenres, Erweitert-Checkbox
 			var $genre 		= $('.entry_genre .genre-wrap > input');
@@ -98,6 +92,7 @@
 			var $subGenre 	= $('.entry_genre .genre-wrap .subgenre input') ;
 			var $extended 	= $('#erweitert');
 			var $untoggle	= $('#untoggle-all');
+			var $genreInput = $('label[for=filmgenre]');
 
 			$extended.on('click', function() {
 				if( $extended.prop('checked') == true) {
@@ -141,6 +136,57 @@
 				});
 				// Damit der Browser nicht beim Klick nach oben springt
 				return false;
+			});
+
+			// Mechanik zur Suche von Unterkategorien (Subgenres)
+			// data-extend ist unser data-Attribut, welches die Mechanik kontrolliert.
+			// 1 = Subgenre, 2 = Genre, 0 = Reset (Genre, vorher nicht gecheckt)
+			// Bei Klick wird deren Text in das Input-Feld geschrieben
+			$genreInput.on('click', function() {
+				var $input = $(this).prev();
+				var $chooseHeader = $('.choose-from-list li.headliner');
+				var $chooseSubs = $('.choose-from-list li').not($chooseHeader);
+
+				// Funktion um den Text des angeklickten Objekts in das Suchfeld zu schreiben (hardcoded, sorry)
+				function returnVal() {
+					var $sfield = $('input[name="query"]');
+					var text = $(this).text();
+					$sfield.val(text);
+				}
+
+				$('.genre-help').fadeIn();
+				if($input.attr('data-extend') == 0) {
+					$input.attr('data-extend', 2);
+					$('.genre-help-container').addClass('genre-only');
+					$chooseHeader.on('click', returnVal);
+				}
+				else if ($input.attr('data-extend') == 2) {
+					$input.attr({'data-extend': 1, 'value': 'subgenre'}).change();
+					$(this).children('abbr').text('Subgenre');
+					$('.genre-help-container').removeClass('genre-only');
+					$chooseSubs.on('click', returnVal);
+					$chooseHeader.on('click', function(){$('input[name="query"]').val('');});
+				} 
+				else {
+					$input.attr({'data-extend': 2, 'value': 'genre'}).change();
+					$(this).children('abbr').text('Genre');
+					$('.genre-help-container').addClass('genre-only');
+					$chooseHeader.on('click', returnVal);
+				}
+			});
+			// Beim Wechsel zu Titel oder FSK soll Genre wieder zum Genre wechseln, wenn es zB davor Subgenre war.
+			$('#filmtitle, #filmfsk').change(function(){
+				$('#filmgenre').attr({'data-extend': 0, 'value': 'genre'}).next('label').children('abbr').text('Genre');
+				$('input[name="query"]').val('');
+				$('.genre-help').fadeOut();
+				$('.genre-help-container').hide();
+			});
+			// Genre Hilfe Container Mechanik
+			var $genreToggle = $('#genre-help-toggle');
+			var $genreContainer = $('.genre-help-container');
+
+			$genreToggle.on('click', function(){
+				$genreContainer.fadeToggle();
 			});
 		});
 	</script>

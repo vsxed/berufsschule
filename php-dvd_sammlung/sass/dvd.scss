@@ -100,6 +100,52 @@ h2, h3, h4 {
 		margin: 0 auto;
 }
 
+.genre-help {
+	margin-top: 10px;
+	display: none;
+
+	.genre-help-container {
+		display: none;
+		small {display: block; margin-bottom: 25px;}
+		.choose-from-list {
+			.headliner {
+				display: block;
+				opacity: 0.7;
+				cursor: not-allowed;
+				&:hover {color: inherit;}
+			}
+			li {
+				padding-right: 15px; 
+				padding-left: 0;
+				cursor: pointer;
+
+				&:hover {
+					color: #428BCA;
+				}
+			}
+			font-size: 85%;
+			margin-top: 10px;
+			display: block;
+		}
+
+		&.genre-only {
+			.choose-from-list {
+				.headliner {
+					color: inherit;
+					cursor: pointer;
+					display: inline !important;
+					opacity: 1;
+
+					&:hover {color: #428BCA;}
+				}
+				li {display: none;}
+
+				display: inline;
+			}
+		}
+	}
+}
+
 // LOS GEHTS
 .dvd-element {
 	display: table;
@@ -175,7 +221,7 @@ h2, h3, h4 {
 			font-size: 2.3rem;
 
 			@media screen and (max-width: 640px) {
-				font-size: 1rem;
+				font-size: 2rem;
 			}
 
 			span {
@@ -192,6 +238,7 @@ h2, h3, h4 {
 }
 
 .modal-dialog {
+	z-index: 999999999;
 	&.search {
 		.modal-header 	{border-bottom: 0;}
 		.modal-footer 	{border-top: 0; margin-top: 0;}
@@ -292,3 +339,4 @@ h2, h3, h4 {
 .error {border: red 2px solid; background: #EEBEBE;}
 p.error {background: none; border: 0; color: red; font-weight: bold;}
 .blue {color: #428BCA;}
+.not-found {display: block; margin: 0 auto; max-width: 100%;}

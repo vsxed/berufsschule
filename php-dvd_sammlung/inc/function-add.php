@@ -1,4 +1,7 @@
 <?php 
+	// Dazugehöriges Template: 
+	// ---- template-add-entry.php
+
 	// Wir setzen hier eine Variable auf "true".
 	// Damit können wir dann später das Front End per PHP kontrollieren.
 	// Es soll später schauen, ob die Funktion auch included wurde – wenn nicht, ist die Variable automatisch "false", da sie ohne die passende Funktions-PHP nicht definiert wird.
